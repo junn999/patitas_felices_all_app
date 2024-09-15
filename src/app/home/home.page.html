@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title class="home">Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="home-content">
+  <div class="text_bienvenida">
+    <h1>Bienvenido a Patitas Felices</h1>
+  </div>
+
+  <!-- Sección de Mascotas Perdidas -->
+  <div class="posts-section">
+    <h2>Mascotas Perdidas</h2>
+    <ion-list>
+      <ion-item *ngFor="let mascota of mascotasPerdidas">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="mascota.photoURL"></ion-img> <!-- Ajusta este campo según el nombre del URL de la imagen -->
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Nombre: {{ mascota.nombre }}</h2>
+          <p>Especie: {{ mascota.especie }}</p>
+          <p>Color: {{ mascota.color }}</p>
+          <p>Raza: {{ mascota.raza }}</p>
+          <p>Sexo: {{ mascota.sexo }}</p>
+          <p>Tipo: {{ mascota.sexo }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <!-- Sección de Mascotas en Adopción -->
+  <div class="posts-section">
+    <h2>Mascotas en Adopción</h2>
+    <ion-list>
+      <ion-item *ngFor="let mascota of mascotasEnAdopcion">
+        <ion-thumbnail slot="start">
+          <ion-img [src]="mascota.photoURL"></ion-img> <!-- Ajusta este campo según el nombre del URL de la imagen -->
+        </ion-thumbnail>
+        <ion-label>
+          <h2>Nombre: {{ mascota.nombre }}</h2>
+          <p>Especie: {{ mascota.especie }}</p>
+          <p>Color: {{ mascota.color }}</p>
+          <p>Raza: {{ mascota.raza }}</p>
+          <p>Sexo: {{ mascota.sexo }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="home" href="/home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="search" routerLink="/search">
+      <ion-icon name="search-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="formulariosmascotas" routerLink="/formulariosmascotas">
+      <ion-icon name="paw-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="location" routerLink="/location">
+      <ion-icon name="location-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="profile" routerLink="/profile">
+      <ion-icon name="person-circle-outline"></ion-icon>
+      <ion-label></ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

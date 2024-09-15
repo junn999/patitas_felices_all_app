@@ -1,0 +1,37 @@
+ion-title{
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 4%;
+}
+
+ion-content {
+    --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
+    background-size: cover;
+    text-align: center;
+  
+}
+  
+ion-item {
+    --background: rgb(228, 228, 228);
+    border-radius: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: black;
+    margin-top: 20px;
+    width: 100%;               /* Asegura que los inputs ocupen el 100% del ancho del contenedor */
+}
+
+ion-button{
+    margin-top: 20px;
+    
+}
+  
+h1{
+    color: #b685b6;
+    font-size: 40px;
+    margin-top: 20px;
+    font-family: 'DynaPuff';
+}
+  
+ion-icon {
+    color: #af7ac5;
+}

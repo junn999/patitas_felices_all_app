@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/home">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titulo">Ubicación</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="map" class="content-container"></div>
+</ion-content>
+
+<ion-tab-bar slot="bottom">
+  <ion-tab-button tab="home" routerLink="/home">
+    <ion-icon name="home-outline"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="search" routerLink="/search">
+    <ion-icon name="search-outline"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="formmascotaperdida" routerLink="/formmascotaperdida">
+    <ion-icon name="paw-outline"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="location" routerLink="/location">
+    <ion-icon name="location-outline"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+
+  <ion-tab-button tab="profile" routerLink="/profile">
+    <ion-icon name="person-circle-outline"></ion-icon>
+    <ion-label></ion-label>
+  </ion-tab-button>
+</ion-tab-bar>

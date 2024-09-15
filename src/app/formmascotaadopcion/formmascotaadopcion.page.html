@@ -1,0 +1,60 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/formulariosmascotas">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titulo">Mascota a dar en adopción</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Especie</ion-label>
+      <ion-input formControlName="especie"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Color</ion-label>
+      <ion-input formControlName="color"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Raza</ion-label>
+      <ion-input formControlName="raza"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Sexo</ion-label>
+      <ion-input formControlName="sexo"></ion-input>
+    </ion-item>
+
+      <div class="photo-section">
+        <div class="text-insert-photo">
+        <p>Insertar foto</p>
+        </div>
+        <div class="camera-button-container">
+            <ion-button (click)="addPhotoToGallery()" fill="outline">
+              <ion-icon name="camera"></ion-icon>
+            </ion-button>
+        </div>
+      </div>
+
+    
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+          <ion-img [src]="photo.webviewPath"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="button-container">
+      <ion-button shape="round" expand="full" type="submit">Enviar</ion-button>
+    </div>
+  </form>
+</ion-content>

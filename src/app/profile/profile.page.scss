@@ -1,0 +1,26 @@
+.name-user{
+  margin-top: 200px; /* Espacio entre los campos de entrada y el botón */
+  text-align: center;
+}
+
+.button-logout{
+  margin-top: 20px; /* Espacio entre los campos de entrada y el botón */
+  display: flex;
+  justify-content: center;
+}
+
+ion-content {
+  --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
+  background-size: cover;
+  text-align: center;
+}
+
+ion-button{
+  margin-top: 75px;
+}
+
+p{
+  color: black;
+  font-size: 20px;
+  margin-top: 50px;
+}

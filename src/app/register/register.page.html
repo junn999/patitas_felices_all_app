@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/login">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Registrarse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="form-container">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <h1>PATITAS FELICES</h1>
+    <ion-item>
+      <ion-input placeholder="Usuario"  class="input"></ion-input>
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Correo" class="input"></ion-input>
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="Contraseña" class="input" type="password"></ion-input>
+      <ion-icon name="lock-closed-outline"></ion-icon>
+    </ion-item>
+ </div>
+ <div class="button-container"> 
+  <ion-button shape="round" expand="block" class="register-btn" color="tertiary">
+      Registrarse
+    </ion-button>
+ </div> 
+</ion-content>

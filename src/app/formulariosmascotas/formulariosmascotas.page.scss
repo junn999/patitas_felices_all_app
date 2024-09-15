@@ -1,0 +1,13 @@
+.titulo {
+    text-align: center;
+    width: 100%; /* Asegura que el título ocupe todo el ancho disponible */
+  }
+
+.button-formularios{
+  display: flex;
+  flex-direction: column; /* Asegura que los botones estén uno debajo del otro */
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente */
+  height: 25%; /* Asegura que el contenedor ocupe toda la altura disponible */
+  margin-top: 300px; /* Ajusta este valor para modificar la posición vertical */
+}

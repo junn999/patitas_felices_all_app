@@ -1,0 +1,46 @@
+@import url( "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css");
+//@import url("https://cdn.jsdelivr.net/npm/leaflet.smoothmarkerbouncing/dist/leaflet.smoothmarkerbouncing.css");
+    
+.location{
+    text-align: center;
+}
+
+  ion-tab-button {
+    --color-selected: #50c8dd;
+    --color: #000000; 
+}
+  
+  ion-tab-button[tab="home"] {
+    --color: #af7ac5;
+    
+}
+  
+  ion-tab-button[tab="search"] {
+    --color: #af7ac5;
+}
+  
+  ion-tab-button[tab="formmascotaperdida"] {
+    --color: #af7ac5;
+}
+  
+  ion-tab-button[tab="location"] {
+    --color: #af7ac5; 
+}
+  
+  ion-tab-button[tab="profile"] {
+    --color: #af7ac5#0099cc; 
+}
+
+ion-tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+ion-content {
+  flex: 100dvh;
+}
+
+.content-container {
+  height: 100%;
+}

@@ -1,0 +1,66 @@
+ion-title{
+  text-align: center;
+}
+
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.login-content {
+text-align: center;
+}
+
+ion-content {
+  --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
+  background-size: cover;
+
+}
+
+h1 {
+  margin-bottom: 120px;
+  font-family: 'DynaPuff';
+  font-size: 40px;
+  color: #b685b6; 
+
+}
+
+p {
+  margin-bottom: 95px; /* Add space between p and the footer */
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+strong {
+  margin-bottom: 1cm; /* Espacio de 5 cm debajo del texto "¿No tienes una cuenta?" */
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+ion-button.login-button {
+  margin-bottom: 1cm; /* Espacio de 5 cm debajo del botón */
+  
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+.loading-screen {
+  text-align: center;
+}
+
+a {
+  color: #000000;  /* Cambia este valor al color que desees para el texto del enlace */
+  /* Remueve el subrayado si no lo deseas */
+}
+
+a:hover {
+  color: #4e1a63; /* Color al pasar el cursor sobre el enlace */
+}
+
+ion-button{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}

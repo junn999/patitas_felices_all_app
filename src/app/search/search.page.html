@@ -1,0 +1,116 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/home">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="titulo-search">Búsqueda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">search</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-item>
+    <ion-searchbar show-clear-button="always" placeholder="Búsqueda"></ion-searchbar>
+  </ion-item>
+  <ion-item>
+      <ion-button id="especie_trigger" class="filtros" color="tertiary"> Especie </ion-button>
+      <ion-popover trigger="especie_trigger" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+      <ion-button class="filtros" id="color_trigger" color="tertiary"> Color </ion-button>
+      <ion-popover trigger="color_trigger" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+      <ion-button class="filtros" id="raza_trigger" color="tertiary"> Raza </ion-button>
+      <ion-popover trigger="raza_trigger" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+      <ion-button class="filtros" id="sexo_trigger" color="tertiary"> Sexo </ion-button>
+      <ion-popover trigger="sexo_trigger" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+
+      <ion-button class="filtros" id="situacion_trigger" color="tertiary"> Situación </ion-button>
+      <ion-popover trigger="situacion_trigger" [dismissOnSelect]="true">
+        <ng-template>
+          <ion-content>
+            <ion-list>
+              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
+              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
+            </ion-list>
+          </ion-content>
+        </ng-template>
+      </ion-popover>
+  </ion-item>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="home" routerLink="/home">
+        <ion-icon name="home-outline"></ion-icon>
+        <ion-label></ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="search" routerLink="/search">
+        <ion-icon name="search-outline"></ion-icon>
+        <ion-label></ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="formmascotaperdida" routerLink="/formmascotaperdida">
+        <ion-icon name="paw-outline"></ion-icon>
+        <ion-label></ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="location" routerLink="/location">
+        <ion-icon name="location-outline"></ion-icon>
+        <ion-label></ion-label>
+      </ion-tab-button>
+  
+      <ion-tab-button tab="profile" routerLink="/profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label></ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
