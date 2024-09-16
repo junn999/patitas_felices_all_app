@@ -3,9 +3,6 @@ import  { Geolocation } from '@capacitor/geolocation';
 import {Component,AfterContentInit} from '@angular/core'
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.js';
-//import 'leaflet.smooth_marker_bouncing';
-
-
 //---------------------------------------------------------------------------------------------
 export function iniciarMapa(map: L.Map){
     const mapContainer = document.getElementById('map');
@@ -86,5 +83,5 @@ export async function getCurrentPosition(map: L.Map, markerRef: { marker: L.Mark
             }
         }
       }
-    );
+    );  
   }
