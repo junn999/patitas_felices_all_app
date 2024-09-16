@@ -33,16 +33,25 @@ export class FormmascotaadopcionPage implements OnInit {
 
   async onSubmit() {
     if (this.form.valid) {
+      const latestPhoto = this.photoService.photos[0];
+      let photoURL = '';
+
+      if(latestPhoto && latestPhoto.url){
+        photoURL = latestPhoto.url
+      }
+      
       const post = {
         ...this.form.value,
         date: new Date(),
+        photoURL: photoURL
       };
 
       try {
-        await this.firestoreService.addPostToAdopcion(post); 
+        await this.firestoreService.addPostToAdopcion(post);
         console.log('Post added successfully');
         // Opcional: Resetear el formulario después de enviar
         this.form.reset();
+        this.photoService.photos = [];
       } catch (error) {
         console.error('Error adding post: ', error);
       }

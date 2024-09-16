@@ -36,3 +36,13 @@
   font-family:Georgia, 'Times New Roman', Times, serif;
   width: 100%;
 }
+
+ion-tabs {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+}
+
+ion-tab-button{
+  --color: #af7ac5;
+}

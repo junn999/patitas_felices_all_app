@@ -72,4 +72,8 @@
     "typescript": "~5.4.0"
   },
   "description": "An Ionic project"
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> c1d060a (Solución al problema de Firebase Storage)

@@ -34,15 +34,24 @@ export class FormmascotaperdidaPage implements OnInit {
 
   async onSubmit() {
     if (this.form.valid) {
+      const latestPhoto = this.photoService.photos[0];
+      let photoURL = '';
+
+      if (latestPhoto && latestPhoto.url){
+        photoURL = latestPhoto.url;
+      }
+
       const post = {
         ...this.form.value,
         date: new Date(),
+        photoURL: photoURL
       };
 
       try {
         await this.firestoreService.addPostToPerdidas(post);
         console.log('Post added successfully');
         this.form.reset();
+        this.photoService.photos = [];
        } catch (error) {
         console.error('Error adding post: ', error);
       }
