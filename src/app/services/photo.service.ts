@@ -3,7 +3,8 @@ import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Preferences } from '@capacitor/preferences';
 
-import { getStorage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage'
+import { getStorage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,12 +24,11 @@ export class PhotoService {
 
     // Guardar la foto en el sistema de archivos
     const savedImageFile = await this.savePicture(capturedPhoto);
+    const photoURL = await this.uploadToFirebase(savedImageFile, capturedPhoto)
 
-    const photoURL = await this.uploadToFirebase(savedImageFile, capturedPhoto);
-    // Agregar la foto guardada a la lista de fotos
     this.photos.unshift({
       ...savedImageFile,
-      url: photoURL
+      url:photoURL
     });
   }
 
@@ -58,10 +58,7 @@ export class PhotoService {
 
     return await this.convertBlobToBase64(blob) as string;
   }
-<<<<<<< HEAD
-=======
 
->>>>>>> c1d060a (Solución al problema de Firebase Storage)
   private convertBlobToBase64 = (blob: Blob) => new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onerror = reject;
@@ -69,16 +66,9 @@ export class PhotoService {
         resolve(reader.result);
     };
     reader.readAsDataURL(blob);
-    });
-<<<<<<< HEAD
-  }
+  });
 
-  export interface UserPhoto {
-    filepath: string;
-    webviewPath?: string;
-=======
-
-  //Método que sube la imágen a Firebase Storage
+    //Método que sube la imágen a Firebase Storage
   private async uploadToFirebase(savedImageFile: UserPhoto, photo: Photo): Promise<string> {
     const response = await fetch(photo.webPath!);
     const blob = await response.blob();
@@ -93,5 +83,4 @@ export class PhotoService {
     filepath: string;
     webviewPath?: string;
     url?: string;
->>>>>>> c1d060a (Solución al problema de Firebase Storage)
   }
