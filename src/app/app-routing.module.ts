@@ -4,12 +4,12 @@ import { AuthGuard } from './auth.guard';  // Protector de ruta
 
 const routes: Routes = [
   {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    path: 'iniciosesionautenticado',
+    loadChildren: () => import('./iniciosesionautenticado/iniciosesionautenticado.module').then( m => m.IniciosesionautenticadoPageModule)
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'iniciosesionautenticado',
     pathMatch: 'full'
   },
   {
@@ -17,24 +17,24 @@ const routes: Routes = [
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), canActivate: [AuthGuard]
   },
   {
-    path: 'register',
-    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
+    path: 'registro',
+    loadChildren: () => import('./registro/registro.module').then( m => m.RegistroPageModule)
   },
   {
     path: 'formmascotaperdida',
     loadChildren: () => import('./formmascotaperdida/formmascotaperdida.module').then( m => m.FormmascotaperdidaPageModule)
   },
   {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
-    path: 'location',
-    loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
+    path: 'ubicacion',
+    loadChildren: () => import('./ubicacion/ubicacion.module').then( m => m.UbicacionPageModule)
   },
   {
-    path: 'search',
-    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
+    path: 'busqueda',
+    loadChildren: () => import('./busqueda/busqueda.module').then( m => m.BusquedaPageModule)
   },
   {
     path: 'formmascotaadopcion',
@@ -45,12 +45,12 @@ const routes: Routes = [
     loadChildren: () => import('./formulariosmascotas/formulariosmascotas.module').then( m => m.FormulariosmascotasPageModule)
   },
   {
-    path: 'editprofile',
-    loadChildren: () => import('./editprofile/editprofile.module').then( m => m.EditprofilePageModule)
+    path: 'editarperfil',
+    loadChildren: () => import('./editarperfil/editarperfil.module').then( m => m.EditarperfilPageModule)
   },
   {
-    path: 'iniciar-sesion',
-    loadChildren: () => import('./iniciar-sesion/iniciar-sesion.module').then( m => m.IniciarSesionPageModule)
+    path: 'iniciosesionnormal',
+    loadChildren: () => import('./iniciosesionnormal/iniciosesionnormal.module').then( m => m.InicioSesionNormalPageModule)
   },
 ];
 
