@@ -47,33 +47,35 @@
       </ion-item>
     </ion-list>
   </div>
+
+  <div class="barra_menu">
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="home" href="/home">
+          <ion-icon name="home-outline"></ion-icon>
+          <ion-label></ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="search" routerLink="/busqueda">
+          <ion-icon name="search-outline"></ion-icon>
+          <ion-label></ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="formulariosmascotas" routerLink="/formulariosmascotas">
+          <ion-icon name="paw-outline"></ion-icon>
+          <ion-label></ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="location" routerLink="/ubicacion">
+          <ion-icon name="location-outline"></ion-icon>
+          <ion-label></ion-label>
+        </ion-tab-button>
+    
+        <ion-tab-button tab="profile" routerLink="/perfil">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-label></ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </div>
 </ion-content>
-
-<ion-tabs>
-  <ion-tab-bar slot="bottom">
-    <ion-tab-button tab="home" href="/home">
-      <ion-icon name="home-outline"></ion-icon>
-      <ion-label></ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="search" routerLink="/busqueda">
-      <ion-icon name="search-outline"></ion-icon>
-      <ion-label></ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="formulariosmascotas" routerLink="/formulariosmascotas">
-      <ion-icon name="paw-outline"></ion-icon>
-      <ion-label></ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="location" routerLink="/ubicacion">
-      <ion-icon name="location-outline"></ion-icon>
-      <ion-label></ion-label>
-    </ion-tab-button>
-
-    <ion-tab-button tab="profile" routerLink="/perfil">
-      <ion-icon name="person-circle-outline"></ion-icon>
-      <ion-label></ion-label>
-    </ion-tab-button>
-  </ion-tab-bar>
-</ion-tabs>

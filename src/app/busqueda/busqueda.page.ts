@@ -7,7 +7,7 @@ import { FirestoreService } from '../services/firestore.service';
   styleUrls: ['./busqueda.page.scss'],
 })
 
-export class SearchPage implements OnInit {
+export class BusquedaPage implements OnInit {
   selectedChips: { type: string, value: string }[] = [];
   searchResults: any[] = []; // Almacena los resultados de búsqueda
   situacion: string = 'todo';  // Por defecto, buscar en ambas colecciones
