@@ -1,61 +1,68 @@
 .main_title {
-    padding-top: 2%;
-    padding-bottom: 4%;
-    text-align: center;
-    width: 100%;
+  padding-top: 2%;
+  padding-bottom: 4%;
+  text-align: center;
+  width: 100%;
 }
 
-.back_button{
-    padding-top: 2%;
-    --border-radius: 15px;
+.back_button {
+  padding-top: 2%;
+  --border-radius: 15px;
 }
 
 ion-item {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
-ion-searchbar{
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 20px;
-    --background: rgb(228, 228, 228);
-    --color:rgb(0,0,0);
-    border-radius: 10px;
+.situacion {
+  font-weight: bold;
+  color: red; /* o algún color según la situación */
 }
 
-ion-content{
-    --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
-    background-size: cover;
-    ion-button {
-        height: 30px;
-        --border-radius: 10px;
-        --padding-start: 16px;
-        --padding-end: 16px;
-        --margin: 8px 0;
-    }
+.chips-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+ion-chip {
+  margin-right: 5px;
+}
+
+ion-button[fill="clear"] {
+  --color: red;
+}
+
+ion-searchbar {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-size: 20px;
+  --background: rgb(228, 228, 228);
+  --color: rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+ion-content {
+  --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
+  background-size: cover;
+  ion-button {
+      height: 30px;
+      --border-radius: 10px;
+      --padding-start: 16px;
+      --padding-end: 16px;
+      --margin: 8px 0;
+  }
 }
 
 ion-tab-button {
-    --color-selected: #50c8dd; /* Color del icono y el texto cuando la pestaña está seleccionada */
-    --color: #000000; /* Color del icono y el texto cuando la pestaña no está seleccionada */
+  --color-selected: #50c8dd;
+  --color: #000000;
 }
-  
-  ion-tab-button[tab="home"] {
-    --color: #af7ac5; /* Color del icono y texto para la pestaña Home */
-    
-}
-  
-  ion-tab-button[tab="search"] {
-    --color: #af7ac5; /* Color del icono y texto para la pestaña Search */
-}
-  
-  ion-tab-button[tab="formmascotaperdida"] {
-    --color: #af7ac5; /* Color del icono y texto para la pestaña Search */
-}
-  
-  ion-tab-button[tab="location"] {
-    --color: #af7ac5; /* Color del icono y texto para la pestaña Search */
-}
-  
-  ion-tab-button[tab="profile"] {
-    --color: #af7ac5#0099cc; /* Color del icono y texto para la pestaña Search */
+
+ion-tab-button[tab="home"],
+ion-tab-button[tab="search"],
+ion-tab-button[tab="formmascotaperdida"],
+ion-tab-button[tab="location"],
+ion-tab-button[tab="profile"] {
+  --color: #af7ac5;
 }

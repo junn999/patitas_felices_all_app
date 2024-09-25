@@ -15,101 +15,106 @@
       <ion-title size="large">search</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-item>
-    <ion-searchbar show-clear-button="always" placeholder="Búsqueda"></ion-searchbar>
-  </ion-item>
-  <ion-item>
-      <ion-button id="especie_trigger" class="filtros" color="tertiary"> Especie </ion-button>
-      <ion-popover trigger="especie_trigger" [dismissOnSelect]="true">
-        <ng-template>
-          <ion-content>
-            <ion-list>
-              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
 
-      <ion-button class="filtros" id="color_trigger" color="tertiary"> Color </ion-button>
-      <ion-popover trigger="color_trigger" [dismissOnSelect]="true">
-        <ng-template>
-          <ion-content>
-            <ion-list>
-              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
+  <!-- Botones para seleccionar criterios -->
+  <ion-item lines="none">
+    <ion-button class="filtros" id="situacion_trigger" color="tertiary">Situación</ion-button>
+    <ion-popover trigger="situacion_trigger" [dismissOnSelect]="true" size="cover">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item button (click)="selectSituacion('Todo')">Todo</ion-item>
+            <ion-item button (click)="selectSituacion('Pérdida')">Pérdida</ion-item>
+            <ion-item button (click)="selectSituacion('Adopcion')">Adopción</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
 
-      <ion-button class="filtros" id="raza_trigger" color="tertiary"> Raza </ion-button>
-      <ion-popover trigger="raza_trigger" [dismissOnSelect]="true">
-        <ng-template>
-          <ion-content>
-            <ion-list>
-              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
+    <ion-button class="filtros" id="especie_trigger" color="tertiary">Especie</ion-button>
+    <ion-popover trigger="especie_trigger" [dismissOnSelect]="true" size="cover">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item button (click)="selectEspecie('Perro')">Perro</ion-item>
+            <ion-item button (click)="selectEspecie('Gato')">Gato</ion-item>
+            <ion-item button (click)="selectEspecie('Otro')">Otro</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
 
-      <ion-button class="filtros" id="sexo_trigger" color="tertiary"> Sexo </ion-button>
-      <ion-popover trigger="sexo_trigger" [dismissOnSelect]="true">
-        <ng-template>
-          <ion-content>
-            <ion-list>
-              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
+    <ion-button class="filtros" id="color_trigger" color="tertiary">Color</ion-button>
+    <ion-popover trigger="color_trigger" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item button (click)="selectColor('Cafe')">Café</ion-item>
+            <ion-item button (click)="selectColor('Negro')">Negro</ion-item>
+            <ion-item button (click)="selectColor('Blanco')">Blanco</ion-item>
+            <ion-item button (click)="selectColor('Naranja')">Naranja</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
 
-      <ion-button class="filtros" id="situacion_trigger" color="tertiary"> Situación </ion-button>
-      <ion-popover trigger="situacion_trigger" [dismissOnSelect]="true">
-        <ng-template>
-          <ion-content>
-            <ion-list>
-              <ion-item [button]="true" [detail]="false">Opción 1</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 2</ion-item>
-              <ion-item [button]="true" [detail]="false">Opción 3</ion-item>
-            </ion-list>
-          </ion-content>
-        </ng-template>
-      </ion-popover>
+    <ion-button class="filtros" id="raza_trigger" color="tertiary">Raza</ion-button>
+    <ion-popover trigger="raza_trigger" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item button (click)="selectRaza('Siames')">Siamés</ion-item>
+            <ion-item button (click)="selectRaza('Bulldog')">Bulldog</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+
+    <ion-button class="filtros" id="sexo_trigger" color="tertiary">Sexo</ion-button>
+    <ion-popover trigger="sexo_trigger" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item button (click)="selectSexo('Macho')">Macho</ion-item>
+            <ion-item button (click)="selectSexo('Hembra')">Hembra</ion-item>
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
   </ion-item>
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="home" routerLink="/home">
-        <ion-icon name="home-outline"></ion-icon>
-        <ion-label></ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="search" routerLink="/search">
-        <ion-icon name="search-outline"></ion-icon>
-        <ion-label></ion-label>
-      </ion-tab-button>
-        <ion-tab-button tab="formmascotaperdida" routerLink="/formulariosmascotas">
-        <ion-icon name="paw-outline"></ion-icon>
-        <ion-label></ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="location" routerLink="/location">
-        <ion-icon name="location-outline"></ion-icon>
-        <ion-label></ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="profile" routerLink="/profile">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        <ion-label></ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+  <!-- Chips dinámicos -->
+  <ion-item lines="none" *ngIf="selectedChips.length > 0">
+    <div class="chips-container">
+      <ion-chip *ngFor="let chip of selectedChips" (click)="removeChip(chip)">
+        {{ chip.value }}
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-chip>
+    </div>
+    <ion-button fill="clear" color="danger" (click)="clearAllChips()">Borrar todo</ion-button>
+  </ion-item>
+
+  <!-- Botón para buscar -->
+  <ion-button expand="full" color="primary" (click)="search()">Buscar</ion-button>
+
+  <!-- Apartado para mostrar los resultados en forma de publicaciones-->
+  <ion-list *ngIf="searchResults.length > 0">
+    <ion-item *ngFor="let post of searchResults">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="post.photoURL"></ion-img> <!-- Ajusta este campo según el nombre del URL de la imagen -->
+      </ion-thumbnail>
+      <ion-label>
+        <h2>{{ post.nombre }}</h2>
+        <p>Especie: {{ post.especie }}</p>
+        <p>Raza: {{ post.raza }}</p>
+        <p>Color: {{ post.color }}</p>
+        <p>Género: {{ post.sexo }}</p>
+        <p class="situacion">{{ post.situacion }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngIf="searchResults.length === 0">
+    <ion-label>No se encontraron resultados</ion-label>
+  </ion-item>
 </ion-content>

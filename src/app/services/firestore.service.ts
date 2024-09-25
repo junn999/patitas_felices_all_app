@@ -12,7 +12,6 @@ export class FirestoreService {
   private fotosMascotasPerdidasCollection = collection(this.firestore, 'FotosMascotasPerdidas');
   private fotosMascotasEnAdopcionCollection = collection(this.firestore, 'FotosMascotasEnAdopcion');
 
-
   constructor(private firestore: Firestore) {}
 
   addPostToPerdidas(post: any): Promise<DocumentReference> {

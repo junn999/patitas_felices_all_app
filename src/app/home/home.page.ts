@@ -26,6 +26,4 @@ export class HomePage implements OnInit {
       this.mascotasEnAdopcion = posts;
     });
   }
-
-
 }
