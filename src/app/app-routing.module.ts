@@ -51,7 +51,8 @@ const routes: Routes = [
   {
     path: 'iniciosesionnormal',
     loadChildren: () => import('./iniciosesionnormal/iniciosesionnormal.module').then( m => m.InicioSesionNormalPageModule)
-  },
+  }
+
 ];
 
 @NgModule({

@@ -15,6 +15,7 @@ export class HomePage implements OnInit {
   ngOnInit(){
     this.loadPosts();
   }
+
   loadPosts() {
     // Obtener posts de Mascotas Perdidas
     this.firestoreService.getPostsFromPerdidas().subscribe((posts) => {

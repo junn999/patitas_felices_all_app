@@ -19,7 +19,8 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
 
   providers: [{ 
     provide: RouteReuseStrategy, 
-    useClass: IonicRouteStrategy }, 
+    useClass: IonicRouteStrategy,
+   }, 
 
   provideFirebaseApp(() => initializeApp({
   "projectId":"apping-1c373",

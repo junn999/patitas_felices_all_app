@@ -14,6 +14,7 @@ export class FirestoreService {
 
   constructor(private firestore: Firestore) {}
 
+  // Métodos para la carga de posts
   addPostToPerdidas(post: any): Promise<DocumentReference> {
     return addDoc(this.mascotasPerdidasCollection, post);
   }
@@ -22,6 +23,7 @@ export class FirestoreService {
     return addDoc(this.MascotasEnAdopcionCollection, post);
   }
 
+  // Métodos para la obtencion de posts de la base de datos
   getPostsFromPerdidas(): Observable<any[]> {
     return collectionData(this.mascotasPerdidasCollection, { idField: 'id' }) as Observable<any[]>;
   }
@@ -30,7 +32,7 @@ export class FirestoreService {
     return collectionData(this.MascotasEnAdopcionCollection, { idField: 'id' }) as Observable<any[]>;
   }
 
-  // Métodos para las imágenes
+  // Métodos para la carga de imágenes en diferentes colecciones
   addPhotoToPerdidas(photo: any): Promise<DocumentReference> {
     return addDoc(this.fotosMascotasPerdidasCollection, photo);
   }
@@ -39,6 +41,7 @@ export class FirestoreService {
     return addDoc(this.fotosMascotasEnAdopcionCollection, photo);
   }
 
+  // Métodos para la obtención de imágenes de las diferentes colecciones
   getPhotosFromPerdidas(): Observable<any[]> {
     return collectionData(this.fotosMascotasPerdidasCollection, { idField: 'id' }) as Observable<any[]>;
   }
