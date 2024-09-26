@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Camera, CameraResultType, CameraSource, Photo } from '@capacitor/camera';
 import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Preferences } from '@capacitor/preferences';
-
 import { getStorage, ref, uploadBytes, getDownloadURL } from '@angular/fire/storage';
 
 @Injectable({

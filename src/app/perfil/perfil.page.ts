@@ -28,7 +28,7 @@ export class PerfilPage implements OnInit {
   logout() {
     this.authService.logout()
       .then(() => {
-        this.router.navigate(['/login']);  // Navegar a la página Login después del cierre de sesión exitoso
+        this.router.navigate(['/iniciosesionautenticado']);  // Navegar a la página Login después del cierre de sesión exitoso
       })
       .catch(error => console.error('Logout failed', error));
   }
