@@ -21,26 +21,3 @@
 ion-tab-button{
   --color: #af7ac5;
 }
-
-.tipo_muestreo_posts{
-  display: flex;
-  justify-content: center; /* Centra verticalmente */
-  align-items: center; /* Centra horizontalmente los botones*/
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantalla */
-  gap: 15px;
-  padding: 10px;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.posts-section {
-  margin: 20px;
-}
