@@ -22,7 +22,9 @@ ion-content {
 }
 
 h1 {
-  margin-bottom: 120px;
+
+  margin-top: 2px;
+  margin-bottom: 35px;
   font-family: 'DynaPuff';
   font-size: 40px;
   color: #b685b6; 
@@ -30,22 +32,23 @@ h1 {
 }
 
 p {
-  margin-bottom: 95px; /* Add space between p and the footer */
+   /* Add space between p and the footer */
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 strong {
-  margin-bottom: 1cm; /* Espacio de 5 cm debajo del texto "¿No tienes una cuenta?" */
+  margin-bottom: 1cm;
+  margin-top: 1cm; /* Espacio de 5 cm debajo del texto "¿No tienes una cuenta?" */
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 ion-button.login-button {
-  margin-bottom: 1cm; /* Espacio de 5 cm debajo del botón */
-  
+   /* Espacio de 5 cm debajo del botón */
   color: black;
   font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 90px;
   
 }
 .loading-screen {
@@ -63,4 +66,17 @@ a:hover {
 
 ion-button{
   font-family: Georgia, 'Times New Roman', Times, serif;
+  width: 300px;
+  margin-top: 10px;
+}
+ion-item {
+  --background: transparent;
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: black;
+  margin-top: 20px;
+  width: 100%;               /* Asegura que los inputs ocupen el 100% del ancho del contenedor */
+}
+ion-icon {
+  color: #af7ac5;
 }

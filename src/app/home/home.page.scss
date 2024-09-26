@@ -1,3 +1,7 @@
+ion-content{
+  background: transparent;
+}
+
 .home{
   text-align: center;
   width: 100%;
@@ -10,14 +14,36 @@
   width: 100%;
 }
 
-.barra_menu {
-  position:sticky;
-  height: 8vh;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
-}
-
 ion-tab-button{
   --color: #af7ac5;
+}
+
+h2{
+  color: #ffffff;
+  text-align: center;
+}
+
+.barra_menu{
+  position: sticky;
+  height: 8vh;
+  bottom: 0;
+  left:0;
+  z-index:100;
+}
+
+.posts-section h2 {
+  color: rgb(247, 242, 242); /* Cambia el color del texto de los títulos */
+ 
+}
+
+p{
+  color: #ffffff;
+}
+
+.tipo_muestreo_posts{
+  color: #ffffff;
+  display: flex;
+  text-align: center;
+  justify-content: center; /* Centra verticalmente */
+  align-items: center; /* Centra horizontalmente los botones*/
 }
