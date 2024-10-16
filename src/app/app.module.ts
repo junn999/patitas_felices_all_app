@@ -8,9 +8,14 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore'; 
 import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getStorage, provideStorage } from '@angular/fire/storage';
+import { LocationService } from './services/ubicacion.service';
+import { MapComponent } from './map/map.component';
+
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent,
+    MapComponent,
+  ],
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
@@ -20,8 +25,8 @@ import { getStorage, provideStorage } from '@angular/fire/storage';
   providers: [{ 
     provide: RouteReuseStrategy, 
     useClass: IonicRouteStrategy,
-   }, 
-
+  }, 
+  LocationService,
   provideFirebaseApp(() => initializeApp({
   "projectId":"apping-1c373",
   "appId":"1:242067860949:web:a7a96d8dfc8fa3c2cae15c",

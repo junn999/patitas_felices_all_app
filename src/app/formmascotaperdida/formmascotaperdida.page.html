@@ -31,6 +31,14 @@
       <ion-label position="floating">Sexo</ion-label>
       <ion-input formControlName="sexo"></ion-input>
     </ion-item>
+    <ion-item>
+      <ion-button expand="full" (click)="openMapModal()">Seleccionar ubicación</ion-button>
+    </ion-item>
+    
+    <!-- Vista previa de la ubicación seleccionada -->
+    <div id="mapPreviewContainer" class="map-preview">
+      <iframe *ngIf="mapPreviewUrl" [src]="mapPreviewUrl" width="400" height="200" style="pointer-events: none;"></iframe>
+    </div>
 
       <div class="photo-section">
         <div class="text-insert-photo">

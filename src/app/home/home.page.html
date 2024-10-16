@@ -23,8 +23,16 @@
         <p>Color: {{ mascota.color }}</p>
         <p>Raza: {{ mascota.raza }}</p>
         <p>Sexo: {{ mascota.sexo }}</p>
-        <p>Tipo: {{ mascota.sexo }}</p>
       </ion-label>
+      <div class="map-preview-container" (click)="onMapClick(mascota)">
+        <iframe
+          *ngIf="mascota.latitud && mascota.longitud"
+          [src]="generateOpenStreetMapUrl(mascota.latitud, mascota.longitud)"
+          width="250"
+          height="150"
+          style="border: none; pointer-events: none;">
+        </iframe>
+      </div>
     </ion-item>
   </ion-list>
 </div>
@@ -44,6 +52,15 @@
         <p>Raza: {{ mascota.raza }}</p>
         <p>Sexo: {{ mascota.sexo }}</p>
       </ion-label>
+      <div class="map-preview-container" (click)="onMapClick(mascota)">
+        <iframe
+          *ngIf="mascota.latitud && mascota.longitud"
+          [src]="generateOpenStreetMapUrl(mascota.latitud, mascota.longitud)"
+          width="250"
+          height="150"
+          style="border: none; pointer-events: none;">
+        </iframe>
+      </div>
     </ion-item>
   </ion-list>
 </div>

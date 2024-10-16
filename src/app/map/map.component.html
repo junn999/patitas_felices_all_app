@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div #mapContainer id="map"></div>
+</ion-content>
+
+<ion-footer *ngIf="showSelectButton"> <!-- Mostrar solo si showSelectButton es true -->
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" color="primary" (click)="confirmLocation()">
+          SELECCIONAR
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
