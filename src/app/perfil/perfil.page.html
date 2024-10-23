@@ -18,16 +18,34 @@
   <ion-button [routerLink]="['/editarperfil']"  shape="round"class="edit-btn" color="tertiary">
     Editar Perfil
   </ion-button>
+  
+  <div class="section-title" >General</div>
+
+    <div class="options-container">
+  <ion-button fill="clear"  href="/notificaciones" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 45px;">
+    <ion-icon name="paw" slot="start"></ion-icon>
+    <h2>Preferencias</h2>
+  </ion-button>
+  
+      <ion-button fill="clear" href="/home" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 30px;">
+        <ion-icon  name="shield-outline" slot="start"></ion-icon>
+        <h2>Seguridad</h2>
+      </ion-button>
+      <ion-button fill="clear" href="/home" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 50px;">
+        <ion-icon name="notifications-outline" slot="start"></ion-icon>
+       <h2>Notificaciones</h2> 
+      </ion-button>
+      <ion-button fill="clear" href="/tema" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 4px;">
+        <ion-icon name="eye-outline" slot="start"></ion-icon>
+       <h2>Tema</h2> 
+      </ion-button>
+    </div>
+      
 
   <div class="button-logout">
     <ion-button shape="round" (click)="logout()" color="tertiary">Logout</ion-button>
   </div>
 
-  <ion-item>
-    <ion-label>Cambiar Tema</ion-label>
-    <ion-toggle [checked]="themeToggleChecked" (ionChange)="toggleTheme($event)"></ion-toggle>
-
-  </ion-item>
 
   <ng-template #showLogin>
     <p>Por favor, inicia sesión.</p>

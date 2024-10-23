@@ -31,7 +31,7 @@ ion-chip {
 }
 
 ion-button[fill="clear"] {
-  --color: red;
+  --color: #af7ac5;
 }
 
 ion-searchbar {
@@ -43,8 +43,6 @@ ion-searchbar {
 }
 
 ion-content {
-  --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
-  background-size: cover;
   ion-button {
       height: 30px;
       --border-radius: 10px;

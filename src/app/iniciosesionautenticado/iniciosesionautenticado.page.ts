@@ -26,7 +26,8 @@ export class IniciosesionautenticadoPage implements OnInit {
         this.isLoading = true; // Mostrar la imagen de carga
         setTimeout(() => {
           this.router.navigate(['/home']);  // Navegar a la página Home después del inicio de sesión exitoso
-      }, 500); // 500 ms = 1/2 segundos
+          this.isLoading = false;
+        }, 500); // 500 ms = 1/2 segundos
     })
       .catch(error => console.error('Login failed', error));
   }

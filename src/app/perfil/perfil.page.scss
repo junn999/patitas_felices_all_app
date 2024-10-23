@@ -1,34 +1,74 @@
 .name-user{
-  margin-top: 200px; /* Espacio entre los campos de entrada y el botón */
+  margin-top: 20px; /* Espacio entre los campos de entrada y el botón */
   text-align: center;
 }
 
 .button-logout{
-  margin-top: 20px; /* Espacio entre los campos de entrada y el botón */
+  margin-top: 8px; /* Espacio entre los campos de entrada y el botón */
   display: flex;
   justify-content: center;
 }
 
 
 .perfil{
-  padding-top: 2%;
-  padding-bottom: 4%;
   text-align: center;
-  width: 100%;
 }
 
 ion-content {
-  --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
-  background-size: cover;
+  background-color: transparent;
   text-align: center;
 }
 
   ion-button{
-    margin-top: 75px;
+    margin-top: 20px;
   }
 
 p{
-  color: black;
+  color: beige;
   font-size: 20px;
   margin-top: 50px;
+}
+
+ion-item{
+  background: transparent;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 100%;
+  text-align: left;
+ 
+}
+
+.options-container ion-button {
+  margin-top: 10px;
+  width: 100%;
+  margin-left: 25px;
+ 
+}
+
+.options-container ion-icon{
+  margin-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(161, 123, 197);
+}
+
+.section-title{
+  text-align: left;
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+h2{
+  color: beige;
+  font-size: 15px;
+
+  
+}
+ion-icon {
+    color: #af7ac5;
 }

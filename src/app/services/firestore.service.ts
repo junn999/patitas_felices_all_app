@@ -11,6 +11,7 @@ export class FirestoreService {
   private MascotasEnAdopcionCollection = collection(this.firestore, 'MascotasEnAdopcion');
   private fotosMascotasPerdidasCollection = collection(this.firestore, 'FotosMascotasPerdidas');
   private fotosMascotasEnAdopcionCollection = collection(this.firestore, 'FotosMascotasEnAdopcion');
+  private usuarioCollection = collection(this.firestore, 'Usuario');
 
   constructor(private firestore: Firestore) {}
 
@@ -21,6 +22,10 @@ export class FirestoreService {
 
   addPostToAdopcion(post: any): Promise<DocumentReference> {
     return addDoc(this.MascotasEnAdopcionCollection, post);
+  }
+
+  addToUsuarios(usuario:any): Promise<any> {
+    return addDoc(this.usuarioCollection, usuario);
   }
 
   // Métodos para la obtencion de posts de la base de datos

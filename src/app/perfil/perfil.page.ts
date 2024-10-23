@@ -10,7 +10,6 @@ import { EMPTY, Observable } from 'rxjs';
   styleUrls: ['./perfil.page.scss'],
 })
 export class PerfilPage implements OnInit {
-  
   user$: Observable<any> = EMPTY;  // Inicializar con un observable vacío
   themeToggleChecked: boolean = false ;
 
@@ -28,16 +27,8 @@ export class PerfilPage implements OnInit {
   logout() {
     this.authService.logout()
       .then(() => {
-        this.router.navigate(['/iniciosesionautenticado']);  // Navegar a la página Login después del cierre de sesión exitoso
+        this.router.navigate(['/iniciosesionautenticado']);  // Redireccionar a 'iniciosesionautenticado' después del cierre de sesión
       })
       .catch(error => console.error('Logout failed', error));
   }
-
-  toggleTheme(event: any) {
-    const darkMode = event.detail.checked;
-    document.body.classList.toggle('dark', darkMode);
-    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
-  }
-  
-
 }
