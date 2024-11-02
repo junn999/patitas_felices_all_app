@@ -8,22 +8,22 @@
   <div class="login-container">
     <div *ngIf="!isLoading" class="login-content">
       <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
       <h1>Patitas Felices</h1>
 
-  <ion-card-content>
-    <ion-item>
-      <ion-input placeholder="Correo" class="input"></ion-input>
-      <ion-icon name="person-circle-outline"></ion-icon>
-    </ion-item>
-
-    <ion-item>
-      <ion-input placeholder="Contraseña" class="input"></ion-input>
-      <ion-icon name="lock-closed-outline"></ion-icon>
-    </ion-item>
-  </ion-card-content>
-      <ion-button shape="round" color="tertiary" routerLink="/home">
+      <ion-card-content>
+        <ion-item>
+          <ion-input [(ngModel)]="email" placeholder="Correo" class="input"></ion-input>
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-input [(ngModel)]="password" placeholder="Contraseña" class="input" type="password"></ion-input>
+          <ion-icon name="lock-closed-outline"></ion-icon>
+        </ion-item>
+      </ion-card-content>
+      
+      <ion-button shape="round" color="tertiary" (click)="loginWithEmail()">
         Iniciar sesión
       </ion-button>
 
@@ -36,13 +36,11 @@
       <img src="assets/gato_precarga.png" alt="Loading Image">
     </div>
 
-      <strong>¿No tienes una cuenta?</strong>
-      
-      <ion-button routerLink="/registro" shape="round" color="medium">Registrarse</ion-button>
-      <ion-button shape="round" (click)="login()" class="login-button" color="tertiary">
-        <ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
-        Continua con Google
-      </ion-button>
-    
+    <strong>¿No tienes una cuenta?</strong>
+    <ion-button routerLink="/registro" shape="round" color="medium">Registrarse</ion-button>
+    <ion-button shape="round" (click)="login()" class="login-button" color="tertiary">
+      <ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
+      Continua con Google
+    </ion-button>
   </div>
 </ion-content>

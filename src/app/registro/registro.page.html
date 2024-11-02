@@ -12,25 +12,29 @@
 <ion-content [fullscreen]="true">
   <div class="form-container">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
     <h1>PATITAS FELICES</h1>
     <ion-item>
-      <ion-input placeholder="Usuario"  class="input"></ion-input>
+      <ion-input [(ngModel)]="username" placeholder="Usuario" class="input"></ion-input>
       <ion-icon name="person-circle-outline"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Correo" class="input"></ion-input>
+      <ion-input [(ngModel)]="email" placeholder="Correo" class="input"></ion-input>
       <ion-icon name="person-circle-outline"></ion-icon>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="Contraseña" class="input" type="password"></ion-input>
+      <ion-input [(ngModel)]="password" placeholder="Contraseña" class="input" type="password"></ion-input>
       <ion-icon name="lock-closed-outline"></ion-icon>
     </ion-item>
- </div>
- <div class="button-container"> 
-  <ion-button shape="round" expand="block" class="register-btn" color="tertiary">
+  </div>
+  <div class="button-container">
+    <ion-button shape="round" expand="block" class="register-btn" color="tertiary" (click)="register()">
       Registrarse
     </ion-button>
- </div> 
+    <ion-button shape="round" expand="block" color="tertiary" (click)="registerWithGoogle()">
+      <ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
+      Regístrate con Google
+    </ion-button>
+  </div>
 </ion-content>

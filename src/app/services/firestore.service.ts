@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, DocumentReference } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, DocumentReference, query, where, getDocs, QuerySnapshot } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,11 +24,11 @@ export class FirestoreService {
     return addDoc(this.MascotasEnAdopcionCollection, post);
   }
 
-  addToUsuarios(usuario:any): Promise<any> {
+  addToUsuario(usuario: any): Promise<any> {
     return addDoc(this.usuarioCollection, usuario);
   }
 
-  // Métodos para la obtencion de posts de la base de datos
+  // Métodos para la obtención de posts de la base de datos
   getPostsFromPerdidas(): Observable<any[]> {
     return collectionData(this.mascotasPerdidasCollection, { idField: 'id' }) as Observable<any[]>;
   }
@@ -53,5 +53,19 @@ export class FirestoreService {
 
   getPhotosFromAdopcion(): Observable<any[]> {
     return collectionData(this.fotosMascotasEnAdopcionCollection, { idField: 'id' }) as Observable<any[]>;
+  }
+
+  // Verificación de existencia de correo electrónico
+  async checkEmailExists(email: string): Promise<boolean> {
+    const q = query(this.usuarioCollection, where('correoElectronico', '==', email));
+    const querySnapshot: QuerySnapshot = await getDocs(q);
+    return !querySnapshot.empty;
+  }
+
+  // Obtener usuario por correo electrónico
+  async getUserByEmail(email: string) {
+    const q = query(this.usuarioCollection, where('correoElectronico', '==', email));
+    const querySnapshot: QuerySnapshot = await getDocs(q);
+    return querySnapshot.empty ? null : querySnapshot.docs[0].data();
   }
 }

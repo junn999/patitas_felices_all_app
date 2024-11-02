@@ -7,12 +7,18 @@ ion-title{
   ion-content {
     --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
     background-size: cover;
-    ion-button {
-      width: 50%;                 /* El botón tendrá un ancho del 50% dentro de su contenedor */
-      text-align: center;
-    }
-  }
   
+  ion-button {
+    width: 300px;
+    text-align: center;
+  }
+  }
+  ion-button.reg-Google{
+  color: black;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-bottom: 90px;
+  }
+
   .form-container {
     display: flex;
     flex-direction: column;

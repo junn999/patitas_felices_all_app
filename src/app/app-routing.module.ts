@@ -51,7 +51,8 @@ const routes: Routes = [
   {
     path: 'iniciosesionnormal',
     loadChildren: () => import('./iniciosesionnormal/iniciosesionnormal.module').then( m => m.InicioSesionNormalPageModule)
-  },  {
+  },
+  {
     path: 'notificaciones',
     loadChildren: () => import('./notificaciones/notificaciones.module').then( m => m.NotificacionesPageModule)
   },
@@ -59,8 +60,6 @@ const routes: Routes = [
     path: 'tema',
     loadChildren: () => import('./tema/tema.module').then( m => m.TemaPageModule)
   }
-
-
 ];
 
 @NgModule({

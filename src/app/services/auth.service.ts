@@ -1,6 +1,6 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
-import { Auth, signInWithPopup, GoogleAuthProvider, signOut, authState, UserCredential } from '@angular/fire/auth';
+import { Auth, signInWithPopup, GoogleAuthProvider, signOut, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,6 +15,14 @@ export class AuthService {
 
   loginWithGoogle(): Promise<UserCredential> {
     return signInWithPopup(this.auth, new GoogleAuthProvider());
+  }
+
+  registerWithEmail(email: string, password: string): Promise<UserCredential> {
+    return createUserWithEmailAndPassword(this.auth, email, password);
+  }
+
+  loginWithEmail(email: string, password: string): Promise<UserCredential> {
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
 
   logout(): Promise<void> {
