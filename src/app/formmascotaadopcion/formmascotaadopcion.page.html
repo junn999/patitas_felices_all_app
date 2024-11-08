@@ -32,7 +32,7 @@
       <ion-input formControlName="sexo"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-button expand="full" (click)="openMapModal()">Seleccionar ubicación</ion-button>
+      <ion-button expand="full" shape="round" (click)="openMapModal()" color="tertiary">Seleccionar ubicación</ion-button>
     </ion-item>
     
     <!-- Vista previa de la ubicación seleccionada -->
@@ -46,7 +46,7 @@
         <p>Insertar foto</p>
         </div>
         <div class="camera-button-container">
-            <ion-button (click)="addPhotoToGallery()" fill="outline">
+            <ion-button (click)="addPhotoToGallery()" fill="outline" color="tertiary">
               <ion-icon name="camera"></ion-icon>
             </ion-button>
         </div>
@@ -63,7 +63,7 @@
     </ion-grid>
 
     <div class="button-container">
-      <ion-button shape="round" expand="full" type="submit">Enviar</ion-button>
+      <ion-button color="tertiary" shape="round" expand="full" type="submit">Enviar</ion-button>
     </div>
   </form>
 </ion-content>

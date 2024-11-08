@@ -59,7 +59,23 @@ const routes: Routes = [
   {
     path: 'tema',
     loadChildren: () => import('./tema/tema.module').then( m => m.TemaPageModule)
+  },  {
+    path: 'autenticacion',
+    loadChildren: () => import('./autenticacion/autenticacion.module').then( m => m.AutenticacionPageModule)
+  },
+  {
+    path: 'cambiocontra',
+    loadChildren: () => import('./cambiocontra/cambiocontra.module').then( m => m.CambiocontraPageModule)
+  },
+  {
+    path: 'configuracion',
+    loadChildren: () => import('./configuracion/configuracion.module').then( m => m.ConfiguracionPageModule)
+  },
+  {
+    path: 'seguridad',
+    loadChildren: () => import('./seguridad/seguridad.module').then( m => m.SeguridadPageModule)
   }
+
 ];
 
 @NgModule({

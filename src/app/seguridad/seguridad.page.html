@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>seguridad</ion-title>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/configuracion">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list class="options-container">
+    <ion-item button lines="full" href="/cambiocontra">
+      <ion-label>Cambiar contraseña</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+    
+    <ion-item button lines="full" href="/autenticacion">
+      <ion-label>Autenticación en dos pasos</ion-label>
+      <ion-icon slot="end" name="chevron-forward-outline"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

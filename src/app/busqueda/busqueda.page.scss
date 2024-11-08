@@ -64,3 +64,15 @@ ion-tab-button[tab="location"],
 ion-tab-button[tab="profile"] {
   --color: #af7ac5;
 }
+
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.scroll-container ion-button {
+  flex-shrink: 0;
+}

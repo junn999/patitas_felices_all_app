@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/seguridad">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Cambiar Contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Actualiza tu contraseña</h2>
+  
+  <ion-item>
+    <ion-label position="floating">Contraseña Actual</ion-label>
+    <ion-input 
+      type="password" 
+      [(ngModel)]="currentPassword">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Nueva Contraseña</ion-label>
+    <ion-input 
+      type="password" 
+      [(ngModel)]="newPassword">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating">Confirmar Nueva Contraseña</ion-label>
+    <ion-input 
+      type="password" 
+      [(ngModel)]="confirmPassword">
+    </ion-input>
+  </ion-item>
+
+  <ion-button  shape="round"  color="tertiary" expand="full" (click)="changePassword()" [disabled]="!isFormValid()">Cambiar Contraseña</ion-button>
+
+  <ion-text color="danger" *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </ion-text>
+</ion-content>
