@@ -59,7 +59,8 @@ const routes: Routes = [
   {
     path: 'tema',
     loadChildren: () => import('./tema/tema.module').then( m => m.TemaPageModule)
-  },  {
+  },
+  {
     path: 'autenticacion',
     loadChildren: () => import('./autenticacion/autenticacion.module').then( m => m.AutenticacionPageModule)
   },
@@ -74,6 +75,15 @@ const routes: Routes = [
   {
     path: 'seguridad',
     loadChildren: () => import('./seguridad/seguridad.module').then( m => m.SeguridadPageModule)
+  },
+  {
+    path: 'tema',
+    loadChildren: () => import('./tema/tema.module').then( m => m.TemaPageModule)
+  },
+  {
+    path: 'reestablecercontrasena',
+    loadChildren: () => import('./reestablecercontrasena/reestablecercontrasena.module').then( m => m.ReestablecercontrasenaPageModule)
+
   }
 
 ];
