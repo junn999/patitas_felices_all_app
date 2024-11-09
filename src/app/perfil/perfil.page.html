@@ -7,7 +7,7 @@
     </ion-buttons>
     <ion-title class="perfil">Perfil</ion-title>
     <ion-buttons slot="end">
-        <ion-button  fill="clear"  href="/configuracion">
+        <ion-button fill="clear" href="/configuracion">
           <ion-icon name="settings"></ion-icon>
         </ion-button>
     </ion-buttons>
@@ -15,23 +15,19 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  
-  <div class="name-user" *ngIf="user$ | async as user; else showLogin">
-    <p>Bienvenido, {{ user.displayName }}</p> 
+  <div class="name-user">
+    <p>Bienvenido, {{ username }}</p> <!-- Mostrar el username del usuario -->
   </div>
 
-  <ion-button [routerLink]="['/editarperfil']"  shape="round"class="edit-btn" color="tertiary">
+  <ion-button [routerLink]="['/editarperfil']" shape="round" class="edit-btn" color="tertiary">
     Editar Perfil
   </ion-button>
-  
 
   <div class="button-logout">
     <ion-button shape="round" (click)="logout()" color="tertiary">Logout</ion-button>
   </div>
 
-
   <ng-template #showLogin>
     <p>Por favor, inicia sesión.</p>
   </ng-template>
-
 </ion-content>

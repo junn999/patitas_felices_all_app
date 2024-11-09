@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, DocumentReference, query, where, getDocs, QuerySnapshot } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, 
+DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class FirestoreService {
   private MascotasEnAdopcionCollection = collection(this.firestore, 'MascotasEnAdopcion');
   private fotosMascotasPerdidasCollection = collection(this.firestore, 'FotosMascotasPerdidas');
   private fotosMascotasEnAdopcionCollection = collection(this.firestore, 'FotosMascotasEnAdopcion');
-  private usuarioCollection = collection(this.firestore, 'Usuario');
+  private usuarioCollection = collection(this.firestore, 'usuarios');
 
   constructor(private firestore: Firestore) {}
 
@@ -55,17 +56,21 @@ export class FirestoreService {
     return collectionData(this.fotosMascotasEnAdopcionCollection, { idField: 'id' }) as Observable<any[]>;
   }
 
-  // Verificación de existencia de correo electrónico
-  async checkEmailExists(email: string): Promise<boolean> {
-    const q = query(this.usuarioCollection, where('correoElectronico', '==', email));
-    const querySnapshot: QuerySnapshot = await getDocs(q);
-    return !querySnapshot.empty;
-  }
-
-  // Obtener usuario por correo electrónico
   async getUserByEmail(email: string) {
-    const q = query(this.usuarioCollection, where('correoElectronico', '==', email));
+    const q = query(this.usuarioCollection, where('email', '==', email));
     const querySnapshot: QuerySnapshot = await getDocs(q);
     return querySnapshot.empty ? null : querySnapshot.docs[0].data();
+  }
+
+  async updateUsername(email: string, newUsername: string, currentDate: Date) {
+    const q = query(this.usuarioCollection, where('email', '==', email));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      const userDocRef = doc(this.firestore, `usuarios/${querySnapshot.docs[0].id}`);
+      await updateDoc(userDocRef, {
+        username: newUsername,
+        lastUsernameChange: currentDate.toISOString()
+      });
+    }
   }
 }
