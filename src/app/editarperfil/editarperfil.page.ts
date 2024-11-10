@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
@@ -14,6 +15,7 @@ export class EditarperfilPage implements OnInit {
 
   constructor(
     private alertController: AlertController,
+    private router: Router,
     private authService: AuthService,
     private firestoreService: FirestoreService
   ) {}
@@ -73,6 +75,8 @@ export class EditarperfilPage implements OnInit {
         buttons: ['OK']
       });
       await successAlert.present();
+      this.newUsername = '';
+      this.router.navigate(['/perfil']);
     } catch (error) {
       const errorMessage = (error as any).message || 'Ocurrió un error al actualizar el nombre de usuario.';
       const errorAlert = await this.alertController.create({

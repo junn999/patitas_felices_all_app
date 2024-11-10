@@ -8,61 +8,51 @@
   <div class="text_bienvenida">
     <h1>Bienvenido a Patitas Felices</h1>
   </div>
- 
-<!-- Sección de Mascotas Perdidas -->
+  
 <div class="posts-section">
   <h2>Mascotas Perdidas</h2>
-  <ion-list>
-    <ion-item *ngFor="let mascota of mascotasPerdidas">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="mascota.photoURL"></ion-img> <!-- Ajusta este campo según el nombre del URL de la imagen -->
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Nombre: {{ mascota.nombre }}</h2>
-        <p>Especie: {{ mascota.especie }}</p>
-        <p>Color: {{ mascota.color }}</p>
-        <p>Raza: {{ mascota.raza }}</p>
-        <p>Sexo: {{ mascota.sexo }}</p>
-      </ion-label>
-      <div class="map-preview-container" (click)="onMapClick(mascota)">
-        <iframe
-          *ngIf="mascota.latitud && mascota.longitud"
-          [src]="generateOpenStreetMapUrl(mascota.latitud, mascota.longitud)"
-          width="250"
-          height="150"
-          style="border: none; pointer-events: none;">
-        </iframe>
-      </div>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let mascota of mascotasPerdidas">
+        <div class="pet-card">
+          <div class="pet-image-container">
+            <img [src]="mascota.photoURL" class="pet-image" />
+          </div>
+          <div class="pet-info">
+            <h3>{{ mascota.nombre | uppercase }}</h3>
+            <div class="pet-details">
+              <p><ion-icon name="paw"></ion-icon> Especie: {{ mascota.especie }}</p>
+              <p><ion-icon name="male-female"></ion-icon> Sexo: {{ mascota.sexo }}</p>
+              <p><ion-icon name="calendar"></ion-icon>Fecha: {{ mascota.date | date:'dd/MM/yy'}} </p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </div>
 
-<!-- Sección de Mascotas en Adopción -->
 <div class="posts-section">
   <h2>Mascotas en Adopción</h2>
-  <ion-list>
-    <ion-item *ngFor="let mascota of mascotasEnAdopcion">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="mascota.photoURL"></ion-img> <!-- Ajusta este campo según el nombre del URL de la imagen -->
-      </ion-thumbnail>
-      <ion-label>
-        <h2>Nombre: {{ mascota.nombre }}</h2>
-        <p>Especie: {{ mascota.especie }}</p>
-        <p>Color: {{ mascota.color }}</p>
-        <p>Raza: {{ mascota.raza }}</p>
-        <p>Sexo: {{ mascota.sexo }}</p>
-      </ion-label>
-      <div class="map-preview-container" (click)="onMapClick(mascota)">
-        <iframe
-          *ngIf="mascota.latitud && mascota.longitud"
-          [src]="generateOpenStreetMapUrl(mascota.latitud, mascota.longitud)"
-          width="250"
-          height="150"
-          style="border: none; pointer-events: none;">
-        </iframe>
-      </div>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let mascota of mascotasPerdidas">
+        <div class="pet-card">
+          <div class="pet-image-container">
+            <img [src]="mascota.photoURL" class="pet-image" />
+          </div>
+          <div class="pet-info">
+            <h3>{{ mascota.nombre | uppercase }}</h3>
+            <div class="pet-details">
+              <p><ion-icon name="paw"></ion-icon> Especie: {{ mascota.especie }}</p>
+              <p><ion-icon name="male-female"></ion-icon> Sexo: {{ mascota.sexo }}</p>
+              <p><ion-icon name="calendar"></ion-icon>Fecha: {{ mascota.date | date:'dd/MM/yy'}} </p>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </div>
 
   <div class="barra_menu">

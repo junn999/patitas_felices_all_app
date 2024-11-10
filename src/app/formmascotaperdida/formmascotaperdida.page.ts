@@ -5,6 +5,7 @@ import { FirestoreService } from '../services/firestore.service';
 import { ModalController } from '@ionic/angular';
 import { MapComponent } from '../map/map.component';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-formmascotaperdida',
@@ -15,6 +16,11 @@ export class FormmascotaperdidaPage implements OnInit {
   form: FormGroup;
   selectedLocation: any = null;
   mapPreviewUrl: SafeResourceUrl = '';
+  razas: string[] = [];
+  speciesBreeds: { [key: string]: string[] } = {
+    perro: ['Labrador', 'Bulldog', 'Pastor Alemán', 'Poodle', 'Chihuahua', 'Rottweiler', 'Husky siberiano', 'Yorkshire'],
+    gato: ['Siames', 'Persa', 'Bengalí', 'Angora', 'Korat']
+  };
   @ViewChild(MapComponent) mapComponent!: MapComponent;
   constructor(
     private fb: FormBuilder,
@@ -22,6 +28,7 @@ export class FormmascotaperdidaPage implements OnInit {
     private firestoreService: FirestoreService,
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
+    private translateService: TranslateService,
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -99,5 +106,19 @@ export class FormmascotaperdidaPage implements OnInit {
       const url = `https://www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.005},${latitude - 0.005},${longitude + 0.005},${latitude + 0.005}&layer=mapnik&marker=${latitude},${longitude}`;
       this.mapPreviewUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url);
     }
+  }
+
+  onEspecieChange(event: any) {
+    const selectedEspecie = event.detail.value;
+    console.log('Selected Especie:', selectedEspecie);
+    this.razas = this.speciesBreeds[selectedEspecie] || [];
+    console.log('Available Razas:', this.razas);
+    this.form.get('raza')?.setValue('');
+  }
+
+  onColorChange(event: any) {
+    const selectedColor = event.detail.value;
+    console.log('Selected Color:', selectedColor); 
+    this.form.get('color')?.setValue(selectedColor);
   }
 }
