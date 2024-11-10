@@ -10,7 +10,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { LocationService } from './services/ubicacion.service';
 import { MapComponent } from './map/map.component';
-
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [AppComponent,
@@ -19,7 +19,8 @@ import { MapComponent } from './map/map.component';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(), 
-    AppRoutingModule,  
+    AppRoutingModule,
+    FormsModule,  
     ],
 
   providers: [{ 

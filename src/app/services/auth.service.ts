@@ -1,6 +1,6 @@
 // auth.service.ts
 import { Injectable } from '@angular/core';
-import { Auth, signInWithPopup, GoogleAuthProvider, signOut, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
+import { Auth, signInWithPopup, GoogleAuthProvider, signOut, authState, createUserWithEmailAndPassword, signInWithEmailAndPassword,sendPasswordResetEmail, UserCredential } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -32,4 +32,7 @@ export class AuthService {
   getUser(): Observable<any> {
     return this.user$;
   }
+
+  // Método para enviar correo de restablecimiento de contraseña 
+  resetPassword(email: string): Promise<void> { return sendPasswordResetEmail(this.auth, email); }
 }

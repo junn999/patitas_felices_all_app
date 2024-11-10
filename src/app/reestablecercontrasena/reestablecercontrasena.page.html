@@ -13,9 +13,9 @@
   <p>Ingresa tu correo asociado a la cuenta para cambiar tu contraseña</p>
 
   <ion-item>
-    <ion-input placeholder="Correo" class="input"></ion-input>
+    <ion-input placeholder="Correo" class="input" [(ngModel)]="email" type="email"></ion-input>
     <ion-icon name="person-circle-outline"></ion-icon>
   </ion-item>
 
-  <ion-button  shape="round"  color="tertiary">Reestablecer</ion-button>
+  <ion-button shape="round" color="tertiary" (click)="resetPassword()">Reestablecer</ion-button>
 </ion-content>
