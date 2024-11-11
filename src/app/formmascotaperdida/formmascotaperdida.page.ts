@@ -36,15 +36,15 @@ export class FormmascotaperdidaPage implements OnInit {
       raza: ['', Validators.required],
       sexo: ['', Validators.required],
       latitud: ['',Validators.required],
-      longitud: ['',Validators.required]
+      longitud: ['',Validators.required],
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {};
 
-  async addPhotoToGallery() {
+  async addPhotoFromGallery() {
     // Tomar y subir la foto usando PhotoService
-    await this.photoService.addNewToGallery();
+    await this.photoService.addPhotoFromGallery();
   }
 
   async onSubmit() {

@@ -59,19 +59,12 @@
       <iframe *ngIf="mapPreviewUrl" [src]="mapPreviewUrl" width="400" height="200" style="pointer-events: none;"></iframe>
     </div>
 
-      <div class="photo-section">
-        <div class="text-insert-photo">
-        <p>Insertar foto</p>
-        </div>
-        <div class="camera-button-container">
-          <ion-button (click)="addPhotoToGallery()" fill="outline" color="tertiary">
-            <ion-icon name="camera"></ion-icon>
-          </ion-button>
-        </div>
-      </div>
-
+    <div class="camera-button-container">
+      <ion-button (click) = "addPhotoFromGallery()" fill = "outline" color = "tertiary">
+        <ion-icon name="images"></ion-icon>
+      </ion-button>
+    </div>
     
-
     <ion-grid>
       <ion-row>
         <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">

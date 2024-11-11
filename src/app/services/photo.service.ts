@@ -12,9 +12,8 @@ export class PhotoService {
   private storage = getStorage();
 
   constructor() { }
-
+  // este se usa para poder tomar la foto desde formmadopcion
   public async addNewToGallery() {
-    // Tomar una foto
     const capturedPhoto = await Camera.getPhoto({
       resultType: CameraResultType.Uri,
       source: CameraSource.Camera,
@@ -29,6 +28,22 @@ export class PhotoService {
       ...savedImageFile,
       url:photoURL
     });
+  }
+//--------------------------------------------------------------------
+//este se usa solo para seleccionar la imagen desde formmperdidas
+  public async addPhotoFromGallery() { 
+    const selectedPhoto = await Camera.getPhoto({ 
+    resultType: CameraResultType.Uri,
+    source: CameraSource.Photos, 
+    quality: 100 
+  }); 
+
+    const savedImageFile = await this.savePicture(selectedPhoto); 
+    const photoURL = await this.uploadToFirebase(savedImageFile, selectedPhoto); 
+    this.photos.unshift({ 
+      ...savedImageFile, 
+      url: photoURL 
+    }); 
   }
 
   private async savePicture(photo: Photo){
