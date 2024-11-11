@@ -84,6 +84,10 @@ const routes: Routes = [
     path: 'reestablecercontrasena',
     loadChildren: () => import('./reestablecercontrasena/reestablecercontrasena.module').then( m => m.ReestablecercontrasenaPageModule)
 
+  },
+  {
+    path: 'detalles',
+    loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
   }
 
 ];

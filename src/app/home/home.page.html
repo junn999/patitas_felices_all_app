@@ -8,16 +8,35 @@
   <div class="text_bienvenida">
     <h1>Bienvenido a Patitas Felices</h1>
   </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4">
+        <ion-button expand="block" fill="outline" (click)="mostrarTodas()" shape="round"  color="tertiary">
+          <ion-label>Todo</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button expand="block" fill="outline" (click)="mostrarEnAdopcion()" shape="round"  color="tertiary">
+          <ion-label>Adopcion</ion-label>
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button expand="block" fill="outline" (click)="mostrarPerdidas()" shape="round"  color="tertiary">
+          <ion-label>Extraviadas</ion-label>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
   
 <div class="posts-section">
-  <h2>Mascotas Perdidas</h2>
   <ion-grid>
     <ion-row>
-      <ion-col size="6" *ngFor="let mascota of mascotasPerdidas">
+      <ion-col size="6" *ngFor="let mascota of publicacionesFiltradas">
         <div class="pet-card">
-          <div class="pet-image-container">
+          <ion-thumbnail  class="pet-image-container" slot="start" (click)="expandImage(mascota.photoURL)">
             <img [src]="mascota.photoURL" class="pet-image" />
-          </div>
+          </ion-thumbnail>
           <div class="pet-info">
             <h3>{{ mascota.nombre | uppercase }}</h3>
             <div class="pet-details">
@@ -26,35 +45,16 @@
               <p><ion-icon name="calendar"></ion-icon>Fecha: {{ mascota.date | date:'dd/MM/yy'}} </p>
             </div>
           </div>
+          <ion-toolbar>
+            <ion-buttons>
+              <ion-button [routerLink]="['/detalles']" [state]="{ mascota: mascota }">Ver detalles</ion-button>
+            </ion-buttons>
+          </ion-toolbar>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
 </div>
-
-<div class="posts-section">
-  <h2>Mascotas en Adopción</h2>
-  <ion-grid>
-    <ion-row>
-      <ion-col size="6" *ngFor="let mascota of mascotasPerdidas">
-        <div class="pet-card">
-          <div class="pet-image-container">
-            <img [src]="mascota.photoURL" class="pet-image" />
-          </div>
-          <div class="pet-info">
-            <h3>{{ mascota.nombre | uppercase }}</h3>
-            <div class="pet-details">
-              <p><ion-icon name="paw"></ion-icon> Especie: {{ mascota.especie }}</p>
-              <p><ion-icon name="male-female"></ion-icon> Sexo: {{ mascota.sexo }}</p>
-              <p><ion-icon name="calendar"></ion-icon>Fecha: {{ mascota.date | date:'dd/MM/yy'}} </p>
-            </div>
-          </div>
-        </div>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</div>
-
   <div class="barra_menu">
     <ion-tabs>
       <ion-tab-bar slot="bottom">

@@ -10,11 +10,12 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { LocationService } from './services/ubicacion.service';
 import { MapComponent } from './map/map.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
+import { ImagenComponent } from './imagen/imagen.component';
 
 @NgModule({
   declarations: [AppComponent,
-    MapComponent,
+    MapComponent, ImagenComponent,
   ],
   imports: [
     BrowserModule, 

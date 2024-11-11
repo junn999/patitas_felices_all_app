@@ -1,0 +1,9 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+  <ion-img *ngIf="photoURL" [src]="photoURL"></ion-img>
+</ion-content>

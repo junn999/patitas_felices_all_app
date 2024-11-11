@@ -29,7 +29,6 @@ export class FormmascotaadopcionPage implements OnInit {
     private firestoreService: FirestoreService,
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
-    private translateService: TranslateService,
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],

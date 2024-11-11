@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Injector } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PhotoService } from '../services/photo.service';
 import { FirestoreService } from '../services/firestore.service'; 
@@ -28,7 +28,6 @@ export class FormmascotaperdidaPage implements OnInit {
     private firestoreService: FirestoreService,
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
-    private translateService: TranslateService,
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],

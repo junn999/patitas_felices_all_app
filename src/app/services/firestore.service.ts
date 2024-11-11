@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData, doc, 
-DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc, orderBy } from '@angular/fire/firestore';
+import { Observable, of,forkJoin } from 'rxjs';
+import { tap, catchError,map, } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,9 @@ export class FirestoreService {
   private fotosMascotasEnAdopcionCollection = collection(this.firestore, 'FotosMascotasEnAdopcion');
   private usuarioCollection = collection(this.firestore, 'usuarios');
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore) {
+    console.log('Firestore inicializado:', this.firestore);
+  }
 
   // Métodos para la carga de posts
   addPostToPerdidas(post: any): Promise<DocumentReference> {
@@ -31,11 +34,49 @@ export class FirestoreService {
 
   // Métodos para la obtención de posts de la base de datos
   getPostsFromPerdidas(): Observable<any[]> {
-    return collectionData(this.mascotasPerdidasCollection, { idField: 'id' }) as Observable<any[]>;
+    const perdidasQuery = query(this.mascotasPerdidasCollection, orderBy('date', 'desc'));
+    return collectionData(perdidasQuery, { idField: 'id' }).pipe(
+      tap(data => {
+        console.log('Datos de MascotasPerdidas:', data);
+        data.forEach(item => console.log('Tipo de date en MascotasPerdidas:', typeof item['date']));
+      }),
+      catchError(error => {
+        console.error('Error obteniendo datos de MascotasPerdidas:', error);
+        return of([]);
+      })
+    ) as Observable<any[]>;
   }
 
   getPostsFromAdopcion(): Observable<any[]> {
-    return collectionData(this.MascotasEnAdopcionCollection, { idField: 'id' }) as Observable<any[]>;
+    const adopcionQuery = query(this.MascotasEnAdopcionCollection, orderBy('date', 'desc'));
+    return collectionData(adopcionQuery, { idField: 'id' }).pipe(
+      tap(data => {
+        console.log('Datos de MascotasEnAdopcion:', data);
+        data.forEach(item => console.log('Tipo de date en MascotasEnAdopcion:', typeof item['date']));
+      }),
+      catchError(error => {
+        console.error('Error obteniendo datos de MascotasEnAdopcion:', error);
+        return of([]);
+      })
+    ) as Observable<any[]>;
+  }
+
+  getAllPosts(): Observable<any[]> {
+    const perdidas = this.getPostsFromPerdidas().pipe(
+      map(posts => posts.map(post => ({ ...post, tipo: 'perdida' })))
+    );
+    const adopcion = this.getPostsFromAdopcion().pipe(
+      map(posts => posts.map(post => ({ ...post, tipo: 'adopcion' })))
+    );
+  
+    return forkJoin([adopcion, perdidas]).pipe(
+      map(([adopcionData, perdidasData]) => {
+        const allPosts = [...adopcionData, ...perdidasData];
+        // Ordena por fecha descendente
+        return allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      }),
+      tap(data => console.log('Datos combinados y ordenados de ambas colecciones:', data))
+    );
   }
 
   // Métodos para la carga de imágenes en diferentes colecciones
@@ -49,11 +90,15 @@ export class FirestoreService {
 
   // Métodos para la obtención de imágenes de las diferentes colecciones
   getPhotosFromPerdidas(): Observable<any[]> {
-    return collectionData(this.fotosMascotasPerdidasCollection, { idField: 'id' }) as Observable<any[]>;
+    return collectionData(this.fotosMascotasPerdidasCollection, { idField: 'id' }).pipe(
+      tap(data => console.log('Fotos de MascotasPerdidas:', data)) // Log para verificar fotos de MascotasPerdidas
+    ) as Observable<any[]>;
   }
 
   getPhotosFromAdopcion(): Observable<any[]> {
-    return collectionData(this.fotosMascotasEnAdopcionCollection, { idField: 'id' }) as Observable<any[]>;
+    return collectionData(this.fotosMascotasEnAdopcionCollection, { idField: 'id' }).pipe(
+      tap(data => console.log('Fotos de MascotasEnAdopcion:', data)) // Log para verificar fotos de MascotasEnAdopcion
+    ) as Observable<any[]>;
   }
 
   async getUserByEmail(email: string) {
