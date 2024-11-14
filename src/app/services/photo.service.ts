@@ -23,7 +23,6 @@ export class PhotoService {
     // Guardar la foto en el sistema de archivos
     const savedImageFile = await this.savePicture(capturedPhoto);
     const photoURL = await this.uploadToFirebase(savedImageFile, capturedPhoto)
-
     this.photos.unshift({
       ...savedImageFile,
       url:photoURL
