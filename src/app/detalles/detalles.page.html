@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo">Detalles</ion-title>
+    <ion-title class="titulo">{{'general.detalles' | translate}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,38 +14,13 @@
     <ion-thumbnail class="pet-thumbnail" slot="start" (click)="expandImage(mascota.photoURL)" >
       <ion-img [src]="mascota.photoURL" ></ion-img>
     </ion-thumbnail>
-    <div class="">
-      <h2 class="pet-name">Nombre: {{ mascota.nombre }}</h2>
-    <p class="pet-info">Especie: {{ mascota.especie }}</p>
-    <p class="pet-info">Color: {{ mascota.color }}</p>
-    <p class="pet-info">Raza: {{ mascota.raza }}</p>
-    <p class="pet-info">Sexo: {{ mascota.sexo }}</p>
-    <p class="pet-info">Fecha: {{ mascota.date | date:'dd/MM/yy'}}</p>
-    <p class="pet-info">{{ mascota.coleccion}}</p>
-    </div>
-    
-
-    <ion-grid>
-      <ion-row class="button-row">
-        <ion-col size="auto" *ngIf="mascota.coleccion == ' En adopcion'">
-          <ion-button expand="block" fill="outline" (click)="BotonAdoptar(mascota)" color="tertiary" shape="round">
-            Adoptar
-          </ion-button>
-        </ion-col>
-    
-        <ion-col size="auto" *ngIf="mascota.coleccion == ' Extraviada'">
-          <ion-button expand="block" fill="outline" (click)="BotonMensaje(mascota)" color="tertiary" shape="round">
-            Mensaje
-          </ion-button>
-        </ion-col>
-    
-        <ion-col size="auto">
-          <ion-button expand="block" fill="outline" (click)="onMapClick()" color="tertiary" shape="round">
-            Ubicación
-          </ion-button>
-        </ion-col>
-      </ion-row>
-    </ion-grid>    
+    <h2 class="pet-name">{{'mascota.nombre' | translate}}:  {{ mascota.nombre }}</h2>
+    <p class="pet-info">{{'mascota.especie' | translate}}: {{ translateValue(mascota.especie, 'especie') }}</p>
+    <p class="pet-info">{{'mascota.color' | translate}}: {{ translateValue(mascota.color, 'color') }}</p>
+    <p class="pet-info">{{'mascota.raza' | translate}}: {{ translateValue(mascota.raza, 'raza') }}</p>
+    <p class="pet-info">{{'mascota.sexo' | translate}}: {{ translateValue(mascota.sexo, 'sexo') }}</p>
+    <p class="pet-info">{{'mascota.fecha' | translate}}: {{ mascota.date | date:'dd/MM/yy' }}</p>
+    <ion-button expand="block" class="location-button" (click)="onMapClick()">{{'mascota.ubi' | translate}}</ion-button>
   </div>
 
 </ion-content>

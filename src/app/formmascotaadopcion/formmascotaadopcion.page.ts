@@ -29,6 +29,7 @@ export class FormmascotaadopcionPage implements OnInit {
     private firestoreService: FirestoreService,
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
+    private translateService: TranslateService,
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -36,8 +37,8 @@ export class FormmascotaadopcionPage implements OnInit {
       color: ['', Validators.required],
       raza: ['', Validators.required],
       sexo: ['', Validators.required],
-      latitud: ['',Validators.required],
-      longitud: ['',Validators.required]
+      latitud: ['', Validators.required],
+      longitud: ['', Validators.required]
     });
   }
 
@@ -65,7 +66,7 @@ export class FormmascotaadopcionPage implements OnInit {
       try {
         await this.firestoreService.addPostToAdopcion(post);
         console.log('Post added successfully');
-        // Opcional: Resetear el formulario después de enviar
+        // Resetear el formulario después de enviar
         this.form.reset();
         this.mapPreviewUrl = '';
         this.photoService.photos = [];
@@ -76,6 +77,8 @@ export class FormmascotaadopcionPage implements OnInit {
       console.log('Formulario inválido');
     }
   }
+
+  
   async openMapModal() {
     const modal = await this.modalController.create({
       component: MapComponent,
@@ -85,7 +88,7 @@ export class FormmascotaadopcionPage implements OnInit {
         isDraggable: true, // Hacer el marcador arrastrable
       },
     });
-  
+
     modal.onDidDismiss().then((data) => {
       if (data.data) {
         this.selectedLocation = data.data; // Guardar la nueva ubicación seleccionada
@@ -96,7 +99,7 @@ export class FormmascotaadopcionPage implements OnInit {
         this.updateMapPreview();
       }
     });
-  
+
     await modal.present();
   }
 
@@ -108,20 +111,20 @@ export class FormmascotaadopcionPage implements OnInit {
     }
   }
 
+
   onEspecieChange(event: any) {
     const selectedEspecie = event.detail.value;
     console.log('Selected Especie:', selectedEspecie);
     this.razas = this.speciesBreeds[selectedEspecie] || [];
     console.log('Available Razas:', this.razas); 
-    
-   
+
     this.form.get('raza')?.setValue('');
   }
 
+ 
   onColorChange(event: any) {
     const selectedColor = event.detail.value;
     console.log('Selected Color:', selectedColor); 
     this.form.get('color')?.setValue(selectedColor);
   }
-  
 }

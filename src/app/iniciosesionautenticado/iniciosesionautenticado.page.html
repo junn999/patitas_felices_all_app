@@ -10,28 +10,27 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
-      <h1>Patitas Felices</h1>
+      <h1>{{ 'login.app_name' | translate }}</h1>
 
       <ion-card-content>
         <ion-item>
-          <ion-input [(ngModel)]="email" placeholder="Correo" class="input"></ion-input>
+          <ion-input [(ngModel)]="email" placeholder="{{ 'login.email_placeholder' | translate }}" class="input"></ion-input>
           <ion-icon name="person-circle-outline"></ion-icon>
         </ion-item>
         <ion-item>
-          <ion-input [(ngModel)]="password" placeholder="Contraseña" class="input" type="password"></ion-input>
+          <ion-input [(ngModel)]="password" placeholder="{{ 'login.password_placeholder' | translate }}" class="input" type="password"></ion-input>
           <ion-icon name="lock-closed-outline"></ion-icon>
         </ion-item>
       </ion-card-content>
 
-      <ion-button fill="clear" href="/reestablecercontrasena" color="tertiary">¿Olvidaste tu contraseña?</ion-button>
+      <ion-button fill="clear" href="/reestablecercontrasena" color="tertiary">{{ 'login.olvidaste_contra' | translate }}</ion-button>
       
       <ion-button shape="round" color="tertiary" (click)="loginWithEmail()">
-
-        Iniciar sesión
+        {{ 'login.boton_iniciar' | translate }}
       </ion-button>
 
       <ng-template #showLogin>
-        <p>Por favor, inicia sesión.</p>
+        <p>{{ 'login.loginPrompt' | translate }}</p>
       </ng-template>
     </div>
 
@@ -39,11 +38,11 @@
       <img src="assets/gato_precarga.png" alt="Loading Image">
     </div>
 
-    <strong>¿No tienes una cuenta?</strong>
-    <ion-button routerLink="/registro" shape="round" color="medium">Registrarse</ion-button>
+    <strong>{{ 'login.sin_cuenta' | translate }}</strong>
+    <ion-button routerLink="/registro" shape="round" color="medium">{{ 'login.registrarse' | translate }}</ion-button>
     <ion-button shape="round" (click)="login()" class="login-button" color="tertiary">
       <ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
-      Continua con Google
+      {{ 'login.continuar_google' | translate }}
     </ion-button>
   </div>
 </ion-content>

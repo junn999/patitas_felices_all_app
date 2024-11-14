@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 import { FirestoreService } from '../services/firestore.service';
 import { firstValueFrom } from 'rxjs'; // Importa firstValueFrom
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-editarperfil',
@@ -12,13 +13,24 @@ import { firstValueFrom } from 'rxjs'; // Importa firstValueFrom
 })
 export class EditarperfilPage implements OnInit {
   newUsername: string = '';
+  idioma: string = 'es';
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
 
   constructor(
     private alertController: AlertController,
     private router: Router,
     private authService: AuthService,
-    private firestoreService: FirestoreService
-  ) {}
+    private firestoreService: FirestoreService,
+    private translateService: TranslateService
+  ) {
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.idioma = defaultLang;
+    this.translateService.setDefaultLang(this.idioma);
+    this.translateService.use(this.idioma);
+  }
 
   ngOnInit() {}
 
@@ -86,5 +98,15 @@ export class EditarperfilPage implements OnInit {
       });
       await errorAlert.present();
     }
+  }
+  
+  changeLang(event: any) {
+    const selectedLang = event.detail.value;
+    this.translateService.use(selectedLang);
+    localStorage.setItem('lang', selectedLang);
+  }
+
+  changeLanguage(language: string) {
+    this.translateService.use(language);
   }
 }

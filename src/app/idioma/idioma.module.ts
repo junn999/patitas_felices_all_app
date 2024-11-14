@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { ProfilePageRoutingModule } from './perfil-routing.module';
-import { PerfilPage } from './perfil.page';
+import { IdiomaPageRoutingModule } from './idioma-routing.module';
+import { IdiomaPage } from './idioma.page';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -12,12 +12,12 @@ import { TranslateService } from '@ngx-translate/core';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProfilePageRoutingModule,
+    IdiomaPageRoutingModule,
     TranslateModule
   ],
-  declarations: [PerfilPage]
+  declarations: [IdiomaPage]
 })
-export class PerfilPageModule {
+export class IdiomaPageModule {
   langs: string [] = [];
   constructor(private translateService: TranslateService){
     this.langs = this.translateService.getLangs();

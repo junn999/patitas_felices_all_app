@@ -5,7 +5,7 @@
          <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Edita el perfil</ion-title>
+    <ion-title>{{ 'editarper.titulo' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -13,12 +13,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&display=swap" rel="stylesheet">
- <h1>Perfil</h1>
+ <h1>{{ 'editarper.titulo' | translate }}</h1>
  <ion-card-content>
   <ion-item>
-    <ion-input [(ngModel)]="newUsername" placeholder="Usuario" class="input"></ion-input>
+    <ion-input [(ngModel)]="newUsername" placeholder="{{ 'editarper.usuario' | translate }}" class="input"></ion-input>
     <ion-icon name="person-circle-outline"></ion-icon>
   </ion-item>
-  <ion-button (click)="saveChanges()" shape="round" color="tertiary">Guardar cambios</ion-button>
+  <ion-button (click)="saveChanges()" shape="round" color="tertiary">{{ 'editarper.guardar' | translate }}</ion-button>
 </ion-card-content>
 </ion-content>

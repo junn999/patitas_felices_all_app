@@ -5,70 +5,72 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo">Reportar mascota perdida</ion-title>
-  </ion-toolbar>
+    <ion-title>{{ 'formulario.Mascota a dar en adopción' | translate }}</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating">{{ 'formulario.nombre' | translate }}</ion-label>
       <ion-input formControlName="nombre"></ion-input>
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating">Especie</ion-label>
+      <ion-label position="floating">{{ 'formulario.especie' | translate }}</ion-label>
       <ion-select formControlName="especie" (ionChange)="onEspecieChange($event)">
-        <ion-select-option value="perro">Perro</ion-select-option>
-        <ion-select-option value="gato">Gato</ion-select-option>
+        <ion-select-option value="perro">{{ 'formulario.perro' | translate }}</ion-select-option>
+        <ion-select-option value="gato">{{ 'formulario.gato' | translate }}</ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating">Color</ion-label>
-      <ion-select formControlName="color" (ionChange)="onColorChange($event)">
-        <ion-select-option value="negro">Negro</ion-select-option>
-        <ion-select-option value="blanco">Blanco</ion-select-option>
-        <ion-select-option value="marron">Marrón</ion-select-option>
-        <ion-select-option value="gris">Gris</ion-select-option>
-        <ion-select-option value="bicolor">Bicolor</ion-select-option>
-        <ion-select-option value="tricolor">Tricolor</ion-select-option>
-        <ion-select-option value="atigrado">Atigrado</ion-select-option>
-      </ion-select>
+      <ion-label position="floating">{{ 'mascota.color' | translate }}</ion-label>
+<ion-select formControlName="color" (ionChange)="onColorChange($event)">
+  <ion-select-option value="negro">{{ 'colores.negro' | translate }}</ion-select-option>
+  <ion-select-option value="blanco">{{ 'colores.blanco' | translate }}</ion-select-option>
+  <ion-select-option value="marron">{{ 'colores.marron' | translate }}</ion-select-option>
+  <ion-select-option value="gris">{{ 'colores.gris' | translate }}</ion-select-option>
+  <ion-select-option value="bicolor">{{ 'colores.bicolor' | translate }}</ion-select-option>
+  <ion-select-option value="tricolor">{{ 'colores.tricolor' | translate }}</ion-select-option>
+  <ion-select-option value="atigrado">{{ 'colores.atigrado' | translate }}</ion-select-option>
+</ion-select>
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating">Raza</ion-label>
+      <ion-label position="floating">{{ 'mascota.raza' | translate }}</ion-label>
       <ion-select formControlName="raza">
         <ion-select-option *ngFor="let raza of razas" [value]="raza">{{ raza }}</ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
-      <ion-label position="floating">Sexo</ion-label>
+      <ion-label position="floating">{{ 'mascota.sexo' | translate }}</ion-label>
       <ion-select formControlName="sexo">
-        <ion-select-option value="macho">Macho</ion-select-option>
-        <ion-select-option value="hembra">Hembra</ion-select-option>
+        <ion-select-option value="macho">{{ 'Male' | translate }}</ion-select-option>
+        <ion-select-option value="hembra">{{ 'Female' | translate }}</ion-select-option>
       </ion-select>
-    
-      <ion-button expand="full" (click)="openMapModal()" shape="round" color="tertiary">Seleccionar ubicación</ion-button>
     </ion-item>
+
+    <ion-button expand="full" (click)="openMapModal()" shape="round" color="tertiary">
+      {{ 'formulario.seleccionar_ubicacion' | translate }}
+    </ion-button>
     
-    <!-- Vista previa de la ubicación seleccionada -->
+    
     <div id="mapPreviewContainer" class="map-preview">
       <iframe *ngIf="mapPreviewUrl" [src]="mapPreviewUrl" width="400" height="200" style="pointer-events: none;"></iframe>
     </div>
-    
-      <div class="photo-section">
-        <div class="text-insert-photo">
-        <p>Insertar foto</p>
-        </div>
-        <div class="camera-button-container">
-          <ion-button (click) = "addPhotoFromGallery()" fill = "outline" color = "tertiary">
-            <ion-icon name="images"></ion-icon>
-          </ion-button>
-        </div>
+
+    <div class="photo-section">
+      <div class="text-insert-photo">
+        <p>{{ 'formulario.insertar_foto' | translate }}</p>
       </div>
+      <div class="camera-button-container">
+        <ion-button (click)="addPhotoFromGallery()" fill="outline" color="tertiary">
+          <ion-icon name="images"></ion-icon>
+        </ion-button>
+      </div>
+    </div>
 
     <ion-grid>
       <ion-row>
@@ -79,7 +81,9 @@
     </ion-grid>
 
     <div class="button-container">
-      <ion-button shape="round" expand="full" type="submit" color="tertiary">Enviar</ion-button>
+      <ion-button shape="round" expand="full" type="submit" color="tertiary">
+        {{ 'formulario.boton_enviar' | translate }}
+      </ion-button>
     </div>
   </form>
 </ion-content>

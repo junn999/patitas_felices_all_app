@@ -5,26 +5,28 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Verificación en dos pasos</ion-title>
+    <ion-title>{{ 'seguridad.autenticacion_dos_pasos' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Código de verificación</h2>
-  <p>Hemos enviado un código a tu dispositivo. Por favor, introdúcelo a continuación.</p>
+  <h2>{{ 'seguridad.codigo_verificacion' | translate }}</h2>
+  <p>{{ 'seguridad.enviado_codigo' | translate }}</p>
   
   <ion-item>
-    <ion-label position="floating">Código de Verificación</ion-label>
-    <ion-input type="number" maxlength="6" [(ngModel)]="verificationCode" ></ion-input>
+    <ion-label position="floating">{{ 'seguridad.codigo' | translate }}</ion-label>
+    <ion-input type="number" maxlength="6" [(ngModel)]="verificationCode"></ion-input>
   </ion-item>
 
-  <ion-button  shape="round"  color="tertiary" expand="full" (click)="verifyCode()">Verificar Código</ion-button>
+  <ion-button shape="round" color="tertiary" expand="full" (click)="verifyCode()">
+    {{ 'seguridad.verificar_codigo' | translate }}
+  </ion-button>
   
   <ion-text color="medium" (click)="resendCode()">
-    <p>Reenviar código</p>
+    <p>{{ 'seguridad.reenviar_codigo' | translate }}</p>
   </ion-text>
 
   <ion-text color="medium" (click)="changeAuthMethod()">
-    <p>Cambiar método de autenticación</p>
+    <p>{{ 'seguridad.cambiar_metodo' | translate }}</p>
   </ion-text>
 </ion-content>

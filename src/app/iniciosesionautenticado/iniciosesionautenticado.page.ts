@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { EMPTY, Observable } from 'rxjs';
 import { AlertController } from '@ionic/angular';
-import { Firestore, doc, getDoc } from '@angular/fire/firestore'; // Importar Firestore y getDoc
+import { Firestore, doc, getDoc } from '@angular/fire/firestore';
+import { TranslateService } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-iniciosesionautenticado',
@@ -15,16 +17,27 @@ export class IniciosesionautenticadoPage implements OnInit {
   isLoading = false;
   email: string = '';
   password: string = '';
-  
+  idioma: string = 'es';  
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
+
   constructor(
     private authService: AuthService,
     private router: Router,
     private alertController: AlertController,
-    private firestore: Firestore // Inyectar Firestore
+    private firestore: Firestore,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
     this.user$ = this.authService.getUser();
+
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.idioma = defaultLang;
+    this.translateService.setDefaultLang(this.idioma);
+    this.translateService.use(this.idioma);
   }
 
   loginWithEmail() {
@@ -83,5 +96,11 @@ export class IniciosesionautenticadoPage implements OnInit {
       });
       await alert.present();
     }
+  }
+
+  changeLang(event: any) {
+    const selectedLang = event.detail.value;
+    this.translateService.use(selectedLang);
+    localStorage.setItem('lang', selectedLang);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-autenticacion',
@@ -8,8 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AutenticacionPage  {
   verificationCode: string = '';
+  idioma: string = 'es';
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
 
-  constructor() { }
+  constructor(private translateService: TranslateService) { 
+    const defaultLang = localStorage.getItem('lang') || 'es'; 
+    this.idioma = defaultLang; 
+    this.translateService.setDefaultLang(this.idioma);
+    this.translateService.use(this.idioma);
+  }
+
+  changeLang(event: any) {
+    const selectedLang = event.detail.value;
+    this.translateService.use(selectedLang); 
+    localStorage.setItem('lang', selectedLang);  
+  
+  }
 
   verifyCode() {
     // Lógica de verificación del código OTP
@@ -25,6 +42,4 @@ export class AutenticacionPage  {
     // Lógica para cambiar el método de autenticación
     console.log('Cambiando método de autenticación...');
   }
-  
-
 }

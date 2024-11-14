@@ -1,0 +1,183 @@
+{
+  "mascota": {
+    "perdida": "Lost pets",
+    "adoptar": "Adopt",
+    "encontrada": "Found pet",
+    "tamano": "Size",
+    "color": "Color",
+    "raza": "Breed",
+    "sexo": "Sex",
+    "ciudad": "City",
+    "estado": "State",
+    "pais": "Country",
+    "solicitud": "Application",
+    "animales": "Animals",
+    "perros": "Dogs",
+    "gatos": "Cats",
+    "perdidos_encontrados": "Lost and found",
+    "en_adopcion": "Pets for Adoption",
+    "nombre": "Name",
+    "fecha": "Date",
+    "especie": "Species",
+    "perro": "Dog",
+    "gato": "Cat",
+    "mascotaForm": "Pet Form",
+    "mascotasPerdidas": "Lost pets",
+    "mascotasEnAdopcion": "Pet for adoption",
+    "Reportar mascota perdida":"Report lost pet",
+    "ver_detalles": "See details",
+    "todo": "All",
+    "extraviada": "Lost",
+    "adopcion": "Adoption",
+    "ubi":"See location"
+  },
+  "general": {
+    "selecciona": "Select",
+    "tema": "Theme",
+    "cerrar_sesion": "Logout",
+    "editar_perfil": "Edit profile",
+    "bienvenida": "Welcome to Happy Paws",
+    "cambiar_tema": "Change theme",
+    "selecciona_idioma": "Select a language",
+    "inicio": "Home",
+    "configuracion": "Settings",
+    "perfil": "Profile",
+    "bienvenidaa": "Welcome",
+    "preferencia":"Preferences",
+    "detalles":"Details",
+    "idioma":"Language",
+    "general":"General",
+    "ubicacion":"Location"
+  },
+  "login": {
+    "titulo": "Log in",
+    "app_name": "Happy Paws",
+    "email_placeholder": "Email",
+    "password_placeholder": "Password",
+    "boton_iniciar": "Log In",
+    "mensaje_iniciar": "Please log in.",
+    "sin_cuenta": "Don't have an account?",
+    "registrarse": "Register",
+    "continuar_google": "Continue with Google",
+    "olvidaste_contra":"Forgot your password?"
+  },
+  "registro": {
+    "titulo": "Register",
+    "boton_registro": "Sign Up",
+    "registro_google":"Sign Up with Google"
+  },
+  "home": {
+    "titulo": "Home"
+  },
+  "formulario": {
+    "nombre": "Name",
+    "especie": "Species",
+    "perro": "Dog",
+    "gato": "Cat",
+    "latitud": "Latitude",
+    "longitud": "Longitude",
+    "boton_enviar": "Send",
+    "insertar_foto": "Insert photo",
+    "seleccionar_ubicacion": "Select location",
+    "fecha":"Date",
+    "Reportar mascota perdida":"Report lost pet",
+    "Mascota a dar en adopción": "Pet to be adopted"
+  },
+  "colores": {
+    "negro": "Black",
+    "blanco": "White",
+    "marron": "Brown",
+    "gris": "Gray",
+    "bicolor": "Bicolor",
+    "tricolor": "Tricolor",
+    "atigrado": "Tabby"
+  },
+  "sexo": {
+    "macho": "Male",
+    "hembra": "Female"
+  },
+  "perfil": {
+    "editar": "Edit profile",
+    "usuario": "Username",
+    "correo": "Email",
+    "contrasena": "Password",
+    "guardar": "Save"
+  },
+  "notificaciones": {
+    "titulo": "Notifications"
+  },
+  "seguridad": {
+    "seg": "Security" ,
+    "cambiar_contrasena": "Change password",
+    "autenticacion_dos_pasos": "Two-Step Authentication",
+    "codigo_verificacion": "Verification Code",
+    "enviado_codigo": "We have sent a code to your device. Please enter it below.",
+    "codigo": "Verification Code",
+    "verificar_codigo": "Verify Code",
+    "reenviar_codigo": "Resend Code",
+    "cambiar_metodo": "Change Authentication Method"
+  },
+  "cambiar": {
+    "titulo": "Change password",
+    "actualizar": "Update your password",
+    "contrasena_actual": "Current password",
+    "nueva_contrasena": "New password",
+    "confirmar_nueva": "Confirm new password",
+    "boton_cambiar": "Change password",
+    "error_contrasenas_no_coinciden": "The passwords do not match.",
+    "error_longitud_minima": "The new password must be at least 8 characters long.",
+    "ingresar correo": "Enter your email associated with the account to change your password",
+    "reestablecer": "Reset",
+    "olvidaste": "Did you forget your password?"
+  },
+  "editarper": {
+    "titulo": "Edit Profile",
+    "usuario": "Username",
+    "correo": "Email",
+    "contraseña": "Password",
+    "guardar": "Save"
+  },
+  "buscar": {
+    "titulo": "Search",
+    "situacion": "Situation",
+    "especie": "Species",
+    "color": "Color",
+    "raza": "Breed",
+    "sexo": "Sex",
+    "borrar_todo": "Clear all",
+    "filtros": "Filters",
+    "sin_resultados": "No results found",
+    "situacion_todo": "All",
+    "situacion_perdida": "Lost",
+    "situacion_adopcion": "Adoption",
+    "especie_perro": "Dog",
+    "especie_gato": "Cat",
+    "color_cafe": "Brown",
+    "color_negro": "Black",
+    "color_blanco": "White",
+    "color_naranja": "Orange",
+    "raza_siames": "Siamese",
+    "raza_bulldog": "Bulldog",
+    "sexo_macho": "Male",
+    "sexo_hembra": "Female",
+    "buscar": "Look for"
+  },
+  "preferencias": {
+    "titulo": "Notification Preferences",
+    "activar_notificaciones": "Enable Notifications",
+    "notificar_perdidas_cerca": "Notify about lost pets near my location",
+    "notificar_adopcion": "Notify about new pets available for adoption",
+    "frecuencia_notificacion": "Notification Frequency",
+    "inmediata": "Instant",
+    "diaria": "Daily",
+    "semanal": "Weekly",
+    "notificar_noticias": "Notify about pet-related news",
+    "guardar": "Save Preferences"
+  },
+  "reest_contra":{
+    "titulo":"Change password",
+    "descripcion":"Enter the email associated with your account to change your password",
+    "correo":"Email",
+    "reest":"Reset"
+  }
+}

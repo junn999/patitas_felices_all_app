@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FirestoreService } from '../services/firestore.service';
 import { MapComponent } from '../map/map.component';
 import { ModalController } from '@ionic/angular';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ImagenComponent } from '../imagen/imagen.component'; 
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-detalles',
@@ -14,13 +14,22 @@ import { ImagenComponent } from '../imagen/imagen.component';
 export class DetallesPage implements OnInit {
   mascota: any;
   @ViewChild(MapComponent) mapComponent!: MapComponent;
+  idioma: string = 'es';
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
 
   constructor(
-    private firestoreService: FirestoreService,
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
-    private router: Router
-  ) {}
+    private router: Router,
+    private translateService: TranslateService
+  ) {
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.translateService.setDefaultLang(defaultLang);
+    this.translateService.use(defaultLang);
+  }
 
   ngOnInit() {
     // Obtener los datos de la mascota seleccionada desde la navegación
@@ -86,10 +95,32 @@ export class DetallesPage implements OnInit {
     });
     await modal.present();
   }
-  BotonAdoptar(mascota: any) {
-    console.log("Botón 'Adoptar' presionado para:", mascota);
-  }
-  BotonMensaje(mascota: any) {
-    console.log("Botón 'Mensaje' presionado en:", mascota);
+
+  translateValue(key: string, type: string): string {
+    if (type === 'especie') {
+      switch (key.toLowerCase()) {
+        case 'gato': return this.translateService.instant('formulario.gato');
+        case 'perro': return this.translateService.instant('formulario.perro');
+        default: return key;
+      }
+    } else if (type === 'sexo') {
+      switch (key.toLowerCase()) {
+        case 'macho': return this.translateService.instant('sexo.macho');
+        case 'hembra': return this.translateService.instant('sexo.hembra');
+        default: return key;
+      }
+    } else if (type == 'color') {
+      switch (key.toLowerCase()) {
+        case 'negro': return this.translateService.instant('colores.negro');
+        case 'blanco': return this.translateService.instant('colores.blanco');
+        case 'marron': return this.translateService.instant('colores.marron');
+        case 'gris': return this.translateService.instant('colores.gris');
+        case 'bicolor': return this.translateService.instant('colores.bicolor');
+        case 'tricolor': return this.translateService.instant('colores.tricolor');
+        case 'atigrado': return this.translateService.instant('colores.atigrado');
+        default: return key;
+      }
+    }
+    return key;
   }
 }

@@ -5,78 +5,85 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo-search">Búsqueda</ion-title>
+    <ion-title class="titulo-search">{{ 'buscar.titulo' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">search</ion-title>
+      <ion-title size="large">{{ 'buscar.titulo' | translate }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
-
   <ion-item lines="none">
     <div class="scroll-container">
-      <ion-button class="filtros" id="situacion_trigger" color="tertiary">Situación</ion-button>
+      <!-- Situación -->
+      <ion-button class="filtros" id="situacion_trigger" color="tertiary">{{ 'buscar.situacion' | translate }}</ion-button>
       <ion-popover trigger="situacion_trigger" [dismissOnSelect]="true" size="cover">
         <ng-template>
           <ion-content>
             <ion-list>
-              <ion-item button (click)="selectSituacion('Todo')">Todo</ion-item>
-              <ion-item button (click)="selectSituacion('Pérdida')">Pérdida</ion-item>
-              <ion-item button (click)="selectSituacion('Adopcion')">Adopción</ion-item>
+              <ion-item button (click)="selectSituacion('Todo')">{{ 'buscar.situacion_todo' | translate }}</ion-item>
+              <ion-item button (click)="selectSituacion('Pérdida')">{{ 'buscar.situacion_perdida' | translate }}</ion-item>
+              <ion-item button (click)="selectSituacion('Adopción')">{{ 'buscar.situacion_adopcion' | translate }}</ion-item>
             </ion-list>
           </ion-content>
         </ng-template>
       </ion-popover>
 
-      <ion-button class="filtros" id="especie_trigger" color="tertiary">Especie</ion-button>
+      <!-- Especie -->
+      <ion-button class="filtros" id="especie_trigger" color="tertiary">{{ 'buscar.especie' | translate }}</ion-button>
       <ion-popover trigger="especie_trigger" [dismissOnSelect]="true" size="cover">
         <ng-template>
           <ion-content>
             <ion-list>
-              <ion-item button (click)="selectEspecie('Perro')">Perro</ion-item>
-              <ion-item button (click)="selectEspecie('Gato')">Gato</ion-item>
+              <ion-item button (click)="selectEspecie('Perro')">{{ 'buscar.especie_perro' | translate }}</ion-item>
+              <ion-item button (click)="selectEspecie('Gato')">{{ 'buscar.especie_gato' | translate }}</ion-item>
             </ion-list>
           </ion-content>
         </ng-template>
       </ion-popover>
 
-      <ion-button class="filtros" id="color_trigger" color="tertiary">Color</ion-button>
+      <!-- Color -->
+      <ion-button class="filtros" id="color_trigger" color="tertiary">{{ 'buscar.color' | translate }}</ion-button>
       <ion-popover trigger="color_trigger" [dismissOnSelect]="true">
         <ng-template>
           <ion-content>
             <ion-list>
-              <ion-item button (click)="selectColor('Cafe')">Café</ion-item>
-              <ion-item button (click)="selectColor('Negro')">Negro</ion-item>
-              <ion-item button (click)="selectColor('Blanco')">Blanco</ion-item>
-              <ion-item button (click)="selectColor('Naranja')">Naranja</ion-item>
+              <ion-item button (click)="selectColor('Cafe')">{{ 'buscar.color_cafe' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Negro')">{{ 'buscar.color_negro' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Blanco')">{{ 'buscar.color_blanco' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Naranja')">{{ 'buscar.color_naranja' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Gris')">{{ 'colores.gris' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Bicolor')">{{ 'colores.bicolor' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Tricolor')">{{ 'colores.tricolor' | translate }}</ion-item>
+              <ion-item button (click)="selectColor('Atigrado')">{{ 'colores.atigrado' | translate }}</ion-item>
             </ion-list>
           </ion-content>
         </ng-template>
       </ion-popover>
 
-      <ion-button class="filtros" id="raza_trigger" color="tertiary">Raza</ion-button>
+      <!-- Raza -->
+      <ion-button class="filtros" id="raza_trigger" color="tertiary">{{ 'buscar.raza' | translate }}</ion-button>
       <ion-popover trigger="raza_trigger" [dismissOnSelect]="true">
         <ng-template>
           <ion-content>
             <ion-list>
-              <ion-item button (click)="selectRaza('Siames')">Siamés</ion-item>
-              <ion-item button (click)="selectRaza('Bulldog')">Bulldog</ion-item>
+              <ion-item *ngFor="let raza of razas" button (click)="selectRaza(raza)">{{ raza | translate }}</ion-item>
             </ion-list>
           </ion-content>
         </ng-template>
       </ion-popover>
 
-      <ion-button class="filtros" id="sexo_trigger" color="tertiary">Sexo</ion-button>
+      <!-- Sexo -->
+      <ion-button class="filtros" id="sexo_trigger" color="tertiary">{{ 'buscar.sexo' | translate }}</ion-button>
       <ion-popover trigger="sexo_trigger" [dismissOnSelect]="true">
         <ng-template>
           <ion-content>
             <ion-list>
-              <ion-item button (click)="selectSexo('Macho')">Macho</ion-item>
-              <ion-item button (click)="selectSexo('Hembra')">Hembra</ion-item>
+              <ion-item button (click)="selectSexo('Macho')">{{ 'buscar.sexo_macho' | translate }}</ion-item>
+              <ion-item button (click)="selectSexo('Hembra')">{{ 'buscar.sexo_hembra' | translate }}</ion-item>
             </ion-list>
           </ion-content>
         </ng-template>
@@ -84,7 +91,7 @@
     </div>
   </ion-item>
 
- 
+  <!-- Chips seleccionados -->
   <ion-item lines="none" *ngIf="selectedChips.length > 0">
     <div class="chips-container">
       <ion-chip *ngFor="let chip of selectedChips" (click)="removeChip(chip)">
@@ -92,12 +99,13 @@
         <ion-icon name="close-circle"></ion-icon>
       </ion-chip>
     </div>
-    <ion-button fill="clear" color="danger" (click)="clearAllChips()">Borrar todo</ion-button>
+    <ion-button fill="clear" color="danger" (click)="clearAllChips()">{{ 'buscar.borrar_todo' | translate }}</ion-button>
   </ion-item>
 
-  
-  <ion-button shape="round" expand="full" color="tertiary" (click)="search()">Buscar</ion-button>
+  <!-- Botón de búsqueda -->
+  <ion-button shape="round" expand="full" color="tertiary" (click)="search()">{{ 'buscar.buscar' | translate }}</ion-button>
 
+  <!-- Resultados de búsqueda -->
   <ion-list *ngIf="searchResults.length > 0">
     <ion-item *ngFor="let post of searchResults">
       <ion-thumbnail slot="start">
@@ -105,16 +113,17 @@
       </ion-thumbnail>
       <ion-label>
         <h2>{{ post.nombre }}</h2>
-        <p>Especie: {{ post.especie }}</p>
-        <p>Raza: {{ post.raza }}</p>
-        <p>Color: {{ post.color }}</p>
-        <p>Género: {{ post.sexo }}</p>
+        <p>{{ 'buscar.especie' | translate }}: {{ post.especie }}</p>
+        <p>{{ 'buscar.raza' | translate }}: {{ post.raza }}</p>
+        <p>{{ 'buscar.color' | translate }}: {{ post.color }}</p>
+        <p>{{ 'buscar.sexo' | translate }}: {{ post.sexo }}</p>
         <p class="situacion">{{ post.situacion }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
 
+
   <ion-item *ngIf="searchResults.length === 0">
-    <ion-label>No se encontraron resultados</ion-label>
+    <ion-label>{{ 'buscar.sin_resultados' | translate }}</ion-label>
   </ion-item>
 </ion-content>

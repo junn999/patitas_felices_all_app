@@ -4,11 +4,11 @@ import { FirestoreService } from '../services/firestore.service';
 import { Router } from '@angular/router';
 import { Observable, EMPTY } from 'rxjs';
 import { DocumentData } from 'firebase/firestore'; // Importa el tipo correcto
+import { TranslateService } from '@ngx-translate/core';
 
 interface UserData {
   username: string;
   email: string;
-  // Agrega otros campos que puedas necesitar
 }
 
 @Component({
@@ -19,11 +19,17 @@ interface UserData {
 export class PerfilPage implements OnInit {
   username: string = ''; // Variable para almacenar el username
   user$: Observable<any> = EMPTY; // Para la autenticación
+  idioma: string = 'es';
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
 
   constructor(
     private authService: AuthService,
     private firestoreService: FirestoreService,
-    private router: Router
+    private router: Router,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit(): void {
@@ -52,5 +58,11 @@ export class PerfilPage implements OnInit {
     this.authService.logout()
       .then(() => this.router.navigate(['/iniciosesionautenticado']))
       .catch(error => console.error('Logout failed', error));
+  }
+
+  changeLang(event: any) {
+    const selectedLang = event.detail.value;
+    this.translateService.use(selectedLang);
+    localStorage.setItem('lang', selectedLang);
   }
 }

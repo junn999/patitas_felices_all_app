@@ -5,15 +5,15 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Cambiar Contraseña</ion-title>
+    <ion-title>{{ 'seguridad.cambiar_contrasena' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <h2>Actualiza tu contraseña</h2>
-  
+  <h2>{{ 'cambiar.actualizar' | translate }}</h2>
+
   <ion-item>
-    <ion-label position="floating">Contraseña Actual</ion-label>
+    <ion-label position="floating">{{ 'cambiar.contrasena_actual' | translate }}</ion-label>
     <ion-input 
       type="password" 
       [(ngModel)]="currentPassword">
@@ -21,7 +21,7 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Nueva Contraseña</ion-label>
+    <ion-label position="floating">{{ 'cambiar.nueva_contrasena' | translate }}</ion-label>
     <ion-input 
       type="password" 
       [(ngModel)]="newPassword">
@@ -29,14 +29,14 @@
   </ion-item>
 
   <ion-item>
-    <ion-label position="floating">Confirmar Nueva Contraseña</ion-label>
+    <ion-label position="floating">{{ 'cambiar.confirmar_nueva' | translate }}</ion-label>
     <ion-input 
       type="password" 
       [(ngModel)]="confirmPassword">
     </ion-input>
   </ion-item>
 
-  <ion-button  shape="round"  color="tertiary" expand="full" (click)="changePassword()" [disabled]="!isFormValid()">Cambiar Contraseña</ion-button>
+  <ion-button shape="round" color="tertiary" expand="full" (click)="changePassword()" [disabled]="!isFormValid()">{{ 'cambiar.boton_cambiar' | translate }}</ion-button>
 
   <ion-text color="danger" *ngIf="errorMessage">
     <p>{{ errorMessage }}</p>

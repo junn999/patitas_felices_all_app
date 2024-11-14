@@ -1,0 +1,183 @@
+{
+  "mascota": {
+    "perdida": "Extraviadas",
+    "adoptar": "Adoptar",
+    "encontrada": "Mascota encontrada",
+    "tamano": "Tamaño",
+    "color": "Color",
+    "raza": "Raza",
+    "sexo": "Sexo",
+    "ciudad": "Ciudad",
+    "estado": "Estado",
+    "pais": "País",
+    "solicitud": "Solicitud",
+    "animales": "Animales",
+    "perros": "Perros",
+    "gatos": "Gatos",
+    "perdidos_encontrados": "Perdidos y encontrados",
+    "en_adopcion": "Mascotas en Adopción",
+    "nombre": "Nombre",
+    "fecha": "Fecha",
+    "especie": "Especie",
+    "perro": "Perro",
+    "gato": "Gato",
+    "mascotaForm": "Formulario de Mascota",
+    "mascotasPerdidas": "Mascotas Perdidas",
+    "mascotasEnAdopcion": "Mascotas en Adopción",
+    "Reportar mascota perdida":"Reportar mascota perdida",
+    "ver_detalles": "Ver detalles",
+    "todo": "Todo",
+    "extraviada": "Extraviada",
+    "adopcion": "Adopción",
+    "ubi":"Ver ubicación"
+  },
+  "general": {
+    "selecciona": "Selecciona",
+    "tema": "Tema",
+    "cerrar_sesion": "Cerrar sesión",
+    "editar_perfil": "Editar perfil",
+    "bienvenida": "Bienvenido a Patitas Felices",
+    "cambiar_tema": "Cambiar tema",
+    "selecciona_idioma": "Selecciona un idioma",
+    "inicio": "Inicio",
+    "configuracion": "Configuración",
+    "perfil": "Perfil",
+    "bienvenidaa": "Bienvenida",
+    "preferencia":"Preferencias",
+    "detalles":"Detalles",
+    "idioma":"Idioma",
+    "general":"General",
+    "ubicacion":"Ubicación"
+  },
+  "login": {
+    "titulo": "Iniciar sesión",
+    "app_name": "Patitas Felices",
+    "email_placeholder": "Correo",
+    "password_placeholder": "Contraseña",
+    "boton_iniciar": "Iniciar sesión",
+    "mensaje_iniciar": "Por favor, inicie sesión.",
+    "sin_cuenta": "¿No tienes una cuenta?",
+    "registrarse": "Registrarse",
+    "continuar_google": "Continuar con Google",
+    "olvidaste_contra":"¿Olvidaste tu contraseña?"
+  },
+  "registro": {
+    "titulo": "Registrarse",
+    "boton_registro": "Regístrate",
+    "registro_google":"Regístrate con Google"
+  },
+  "home": {
+    "titulo": "Inicio"
+  },
+  "formulario": {
+    "nombre": "Nombre",
+    "especie": "Especie",
+    "perro": "Perro",
+    "gato": "Gato",
+    "latitud": "Latitud",
+    "longitud": "Longitud",
+    "boton_enviar": "Enviar",
+    "insertar_foto": "Insertar foto",
+    "seleccionar_ubicacion": "Seleccionar ubicación",
+    "fecha":"Fecha",
+    "Reportar mascota perdida":"Reportar mascota perdida",
+    "Mascota a dar en adopción": "Mascota a dar en adopción"
+  },
+  "colores": {
+    "negro": "Negro",
+    "blanco": "Blanco",
+    "marron": "Marrón",
+    "gris": "Gris",
+    "bicolor": "Bicolor",
+    "tricolor": "Tricolor",
+    "atigrado" : "Atigrado"
+  },
+  "sexo": {
+    "macho": "Macho",
+    "hembra": "Hembra"
+  },
+  "perfil": {
+    "editar": "Editar perfil",
+    "usuario": "Usuario",
+    "correo": "Correo",
+    "contrasena": "Contraseña",
+    "guardar": "Guardar"
+  },
+  "notificaciones": {
+    "titulo": "Notificaciones"
+  },
+  "seguridad": {
+    "seg": "Seguridad",
+    "cambiar_contrasena": "Cambiar contraseña",
+    "autenticacion_dos_pasos": "Autenticación en dos pasos",
+    "codigo_verificacion": "Código de verificación",
+    "enviado_codigo": "Hemos enviado un código a tu dispositivo. Por favor, introdúcelo a continuación.",
+    "codigo": "Código de verificación",
+    "verificar_codigo": "Verificar código",
+    "reenviar_codigo": "Reenviar código",
+    "cambiar_metodo": "Cambiar método de autenticación"
+  },
+  "cambiar": {
+    "titulo": "Cambiar Contraseña",
+    "actualizar": "Actualiza tu contraseña",
+    "contrasena_actual": "Contraseña Actual",
+    "nueva_contrasena": "Nueva Contraseña",
+    "confirmar_nueva": "Confirmar Nueva Contraseña",
+    "boton_cambiar": "Cambiar Contraseña",
+    "error_contrasenas_no_coinciden": "Las contraseñas no coinciden.",
+    "error_longitud_minima": "La nueva contraseña debe tener al menos 8 caracteres.",
+    "ingresar correo": "Ingresa tu correo asosiado a la cuenta para cambiar tu contraseña",
+    "reestablecer": "Reestablecer",
+    "olvidaste": "Olvidaste tu contraseña"
+  },
+  "editarper": {
+    "titulo": "Editar perfil",
+    "usuario": "Usuario",
+    "contraseña": "Contraseña",
+    "correo":"Correo",
+    "guardar": "Guardar"
+  },
+  "buscar": {
+    "titulo": "Búsqueda",
+    "situacion": "Situación",
+    "especie": "Especie",
+    "color": "Color",
+    "raza": "Raza",
+    "sexo": "Sexo",
+    "borrar_todo": "Borrar todo",
+    "filtros": "Filtros",
+    "sin_resultados": "No se encontraron resultados",
+    "situacion_todo": "Todo",
+    "situacion_perdida": "Pérdida",
+    "situacion_adopcion": "Adopción",
+    "especie_perro": "Perro",
+    "especie_gato": "Gato",
+    "color_cafe": "Café",
+    "color_negro": "Negro",
+    "color_blanco": "Blanco",
+    "color_naranja": "Naranja",
+    "raza_siames": "Siamés",
+    "raza_bulldog": "Bulldog",
+    "sexo_macho": "Macho",
+    "sexo_hembra": "Hembra",
+    "buscar":"Buscar"
+  },
+  "preferencias": {
+    "titulo": "Preferencias de Notificación",
+    "activar_notificaciones": "Activar Notificaciones",
+    "notificar_perdidas_cerca": "Notificar sobre mascotas perdidas cerca de mi ubicación",
+    "notificar_adopcion": "Notificar sobre nuevas mascotas en adopción",
+    "frecuencia_notificacion": "Frecuencia de Notificación",
+    "inmediata": "Inmediata",
+    "diaria": "Diaria",
+    "semanal": "Semanal",
+    "notificar_noticias": "Notificar sobre noticias de mascotas",
+    "guardar": "Guardar Preferencias"
+  },
+  "reest_contra":{
+    "titulo":"Reestablecer contraseña",
+    "descripcion":"Ingresa tu correo asociado a la cuenta para cambiar tu contraseña",
+    "correo":"Correo",
+    "reest":"Reestablecer"
+  }
+}

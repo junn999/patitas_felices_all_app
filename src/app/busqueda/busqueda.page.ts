@@ -1,26 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../services/firestore.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-search',
   templateUrl: './busqueda.page.html',
   styleUrls: ['./busqueda.page.scss'],
 })
-
 export class BusquedaPage implements OnInit {
   selectedChips: { type: string, value: string }[] = [];
-  searchResults: any[] = []; // Almacena los resultados de búsqueda
-  situacion: string = 'todo';  // Por defecto, buscar en ambas colecciones
-  especie: string = '';        // Inicializar con una cadena vacía
-  color: string = '';          // Inicializar con una cadena vacía
-  raza: string = '';           // Inicializar con una cadena vacía
-  sexo: string = '';           // Inicializar con una cadena vacía
+  searchResults: any[] = []; 
+  situacion: string = 'todo';
+  especie: string = '';
+  color: string = '';
+  raza: string = '';
+  sexo: string = '';
+  razas: string[] = [];
+  speciesBreeds: { [key: string]: string[] } = {
+    perro: ['Labrador', 'Bulldog', 'Pastor Alemán', 'Poodle', 'Chihuahua', 'Rottweiler', 'Husky siberiano', 'Yorkshire'],
+    gato: ['Siames', 'Persa', 'Bengalí', 'Angora', 'Korat']
+  };
+  idioma: string = 'es';
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
 
-  constructor(private firestoreService: FirestoreService) {}
+  constructor(private firestoreService: FirestoreService, private translateService: TranslateService) {
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.translateService.setDefaultLang(defaultLang);
+    this.translateService.use(defaultLang);
+  }
 
   ngOnInit() {}
 
-  // Métodos para seleccionar criterios y crear chips
   selectSituacion(value: string) {
     this.situacion = value;
     this.addChip('Situación', value);
@@ -28,6 +41,8 @@ export class BusquedaPage implements OnInit {
 
   selectEspecie(value: string) {
     this.especie = value;
+    this.raza = ''; 
+    this.razas = this.speciesBreeds[value.toLowerCase()] || []; 
     this.addChip('Especie', value);
   }
 
@@ -54,7 +69,7 @@ export class BusquedaPage implements OnInit {
 
   removeChip(chip: { type: string, value: string }) {
     this.selectedChips = this.selectedChips.filter(c => c !== chip);
-    // Limpiar el criterio de búsqueda cuando se elimina el chip
+  
     if (chip.type === 'Situación') this.situacion = 'todo';
     if (chip.type === 'Especie') this.especie = '';
     if (chip.type === 'Color') this.color = '';
@@ -71,9 +86,8 @@ export class BusquedaPage implements OnInit {
     this.sexo = '';
   }
 
-  // Método de búsqueda
   search() {
-    this.searchResults = []; // Limpiar resultados previos
+    this.searchResults = []; 
     if (this.situacion === 'Pérdida') {
       this.firestoreService.getPostsFromPerdidas().subscribe(posts => {
         this.filterPosts(posts, 'Pérdida');
@@ -82,7 +96,7 @@ export class BusquedaPage implements OnInit {
       this.firestoreService.getPostsFromAdopcion().subscribe(posts => {
         this.filterPosts(posts, 'Adopción');
       });
-    } else{
+    } else {
       this.firestoreService.getPostsFromPerdidas().subscribe(perdidas => {
         this.firestoreService.getPostsFromAdopcion().subscribe(adopcion => {
           this.filterPosts([...perdidas, ...adopcion], 'Todo');
@@ -91,7 +105,6 @@ export class BusquedaPage implements OnInit {
     }
   }
 
-  // Filtrar resultados según los criterios seleccionados
   filterPosts(posts: any[], situacion: string) {
     let filtered = posts;
     if (this.especie) {
@@ -106,7 +119,7 @@ export class BusquedaPage implements OnInit {
     if (this.sexo) {
       filtered = filtered.filter(post => post.sexo === this.sexo);
     }
-    // Añadir situación a cada post
+    
     filtered = filtered.map(post => ({ ...post, situacion: situacion === 'Todo' ? post.situacion : situacion}));
     this.searchResults = filtered;
   }

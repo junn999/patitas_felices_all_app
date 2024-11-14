@@ -5,30 +5,32 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title>Configuración</ion-title>
+    <ion-title>{{ 'general.configuracion' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <div class="section-title" >General</div>
+  <div class="section-title">{{ 'general.general' | translate }}</div>
 
-    <div class="options-container">
-  <ion-button fill="clear"  href="/home" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 45px;">
-    <ion-icon name="paw" slot="start"></ion-icon>
-    <h2>Preferencias</h2>
-  </ion-button>
-  
-      <ion-button fill="clear" href="/seguridad" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 30px;">
-        <ion-icon  name="shield" slot="start"></ion-icon>
-        <h2>Seguridad</h2>
-      </ion-button>
-      <ion-button fill="clear" href="/notificaciones" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 50px;">
-        <ion-icon name="notifications" slot="start"></ion-icon>
-       <h2>Notificaciones</h2> 
-      </ion-button>
-      <ion-button fill="clear" href="/tema" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 4px;">
-        <ion-icon name="eye" slot="start"></ion-icon>
-       <h2>Tema</h2> 
-      </ion-button>
-    </div>
+  <div class="options-container">
+    <ion-button fill="clear" href="/home" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 45px;">
+      <ion-icon name="paw" slot="start"></ion-icon>
+      <h2>{{ 'general.preferencia' | translate }}</h2>
+    </ion-button>
+
+    <ion-button fill="clear" href="/seguridad" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 30px;">
+      <ion-icon name="shield" slot="start"></ion-icon>
+      <h2>{{ 'seguridad.seg' | translate }}</h2>
+    </ion-button>
+
+    <ion-button fill="clear" href="/notificaciones" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 50px;">
+      <ion-icon name="notifications" slot="start"></ion-icon>
+      <h2>{{ 'notificaciones.titulo' | translate }}</h2>
+    </ion-button>
+
+    <ion-button fill="clear" href="/temap" style="display: grid; grid-template-columns: 1fr 1fr; margin-left: 4px;">
+      <ion-icon name="eye" slot="start"></ion-icon>
+      <h2>{{ 'general.tema' | translate }}</h2>
+    </ion-button>
+  </div>
 </ion-content>

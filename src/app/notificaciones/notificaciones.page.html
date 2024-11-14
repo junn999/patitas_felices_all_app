@@ -1,37 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Preferencias de búsqueda</ion-title>
     <ion-button fill="clear" href="/configuracion">
-      <ion-icon name="arrow-back-outline" ></ion-icon>
+      <ion-icon name="arrow-back-outline"></ion-icon>
     </ion-button>
+    <ion-title>{{ 'preferencias.titulo' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label>Separar mascotas por grupos</ion-label>
-      <ion-toggle slot="end" color="tertiary"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Separar mascotas por color</ion-label>
-      <ion-toggle slot="end" color="tertiary"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Separar mascotas por raza</ion-label>
-      <ion-toggle slot="end" color="tertiary"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Separar mascotas por tamaño</ion-label>
-      <ion-toggle slot="end" color="tertiary"></ion-toggle>
-    </ion-item>
-    <ion-item>
-      <ion-label>Frecuencia de actualización de resultados</ion-label>
-      <ion-select slot="end" color="tertiary">
-        <ion-select-option value="minuto" color="tertiary">Minuto</ion-select-option>
-        <ion-select-option value="hora" color="tertiary">Hora</ion-select-option>
-        <ion-select-option value="día" color="tertiary">Día</ion-select-option>
-      </ion-select>
-    </ion-item>
-  </ion-list>
+
+  <ion-item>
+    <ion-label>{{ 'preferencias.activar_notificaciones' | translate }}</ion-label>
+    <ion-toggle [(ngModel)]="notificationsEnabled" slot="end" color="tertiary"></ion-toggle>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>{{ 'preferencias.notificar_perdidas_cerca' | translate }}</ion-label>
+    <ion-toggle [(ngModel)]="notifyLostPetsNearMe" slot="end" color="tertiary"></ion-toggle>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>{{ 'preferencias.notificar_adopcion' | translate }}</ion-label>
+    <ion-toggle [(ngModel)]="notifyAdoptablePets" slot="end" color="tertiary"></ion-toggle>
+  </ion-item>
+
+  
+  <ion-item>
+    <ion-label>{{ 'preferencias.frecuencia_notificacion' | translate }}</ion-label>
+    <ion-select [(ngModel)]="notificationFrequency" slot="end" color="tertiary">
+      <ion-select-option value="instant">{{ 'preferencias.inmediata' | translate }}</ion-select-option>
+      <ion-select-option value="daily">{{ 'preferencias.diaria' | translate }}</ion-select-option>
+      <ion-select-option value="weekly">{{ 'preferencias.semanal' | translate }}</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>{{ 'preferencias.notificar_noticias' | translate }}</ion-label>
+    <ion-toggle [(ngModel)]="notifyNews" slot="end" color="tertiary"></ion-toggle>
+  </ion-item>
+
+
+  <ion-button expand="full" (click)="savePreferences()" color="tertiary" shape="round">{{ 'preferencias.guardar' | translate }}</ion-button>
 </ion-content>

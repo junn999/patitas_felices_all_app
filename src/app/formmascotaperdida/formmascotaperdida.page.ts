@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Injector } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PhotoService } from '../services/photo.service';
 import { FirestoreService } from '../services/firestore.service'; 
@@ -21,13 +21,16 @@ export class FormmascotaperdidaPage implements OnInit {
     perro: ['Labrador', 'Bulldog', 'Pastor Alemán', 'Poodle', 'Chihuahua', 'Rottweiler', 'Husky siberiano', 'Yorkshire'],
     gato: ['Siames', 'Persa', 'Bengalí', 'Angora', 'Korat']
   };
+
   @ViewChild(MapComponent) mapComponent!: MapComponent;
+  
   constructor(
     private fb: FormBuilder,
     public photoService: PhotoService,
     private firestoreService: FirestoreService,
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
+    private translateService: TranslateService
   ) {
     this.form = this.fb.group({
       nombre: ['', Validators.required],
@@ -35,12 +38,16 @@ export class FormmascotaperdidaPage implements OnInit {
       color: ['', Validators.required],
       raza: ['', Validators.required],
       sexo: ['', Validators.required],
-      latitud: ['',Validators.required],
-      longitud: ['',Validators.required],
+      latitud: ['', Validators.required],
+      longitud: ['', Validators.required]
     });
   }
 
-  ngOnInit() {};
+  ngOnInit() {
+    // Usar el idioma predeterminado del localStorage o 'es' como fallback
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.translateService.use(defaultLang);  // Cambiar idioma al inicializar
+  }
 
   async addPhotoFromGallery() {
     // Tomar y subir la foto usando PhotoService
@@ -52,7 +59,7 @@ export class FormmascotaperdidaPage implements OnInit {
       const latestPhoto = this.photoService.photos[0];
       let photoURL = '';
 
-      if (latestPhoto && latestPhoto.url){
+      if (latestPhoto && latestPhoto.url) {
         photoURL = latestPhoto.url;
       }
 
@@ -68,26 +75,27 @@ export class FormmascotaperdidaPage implements OnInit {
         this.form.reset();
         this.mapPreviewUrl = '';
         this.photoService.photos = [];
-       } catch (error) {
+      } catch (error) {
         console.error('Error adding post: ', error);
       }
     } else {
       console.log('Formulario inválido');
     }
   }
+
   async openMapModal() {
     const modal = await this.modalController.create({
       component: MapComponent,
       componentProps: {
-        latitude: this.selectedLocation ? this.selectedLocation.latitude : 13.6929, // Ubicación predeterminada o la seleccionada
+        latitude: this.selectedLocation ? this.selectedLocation.latitude : 13.6929, 
         longitude: this.selectedLocation ? this.selectedLocation.longitude : -89.2182,
-        isDraggable: true, // Hacer el marcador arrastrable
+        isDraggable: true, 
       },
     });
   
     modal.onDidDismiss().then((data) => {
       if (data.data) {
-        this.selectedLocation = data.data; // Guardar la nueva ubicación seleccionada
+        this.selectedLocation = data.data; 
         this.form.patchValue({
           latitud: this.selectedLocation.latitude,
           longitud: this.selectedLocation.longitude,
@@ -95,7 +103,6 @@ export class FormmascotaperdidaPage implements OnInit {
         this.updateMapPreview();
       }
     });
-  
     await modal.present();
   }
 
@@ -117,7 +124,12 @@ export class FormmascotaperdidaPage implements OnInit {
 
   onColorChange(event: any) {
     const selectedColor = event.detail.value;
-    console.log('Selected Color:', selectedColor); 
+    console.log('Selected Color:', selectedColor);
     this.form.get('color')?.setValue(selectedColor);
+  }
+
+  changeLanguage(language: string) {
+    this.translateService.use(language);  
+    localStorage.setItem('lang', language);  
   }
 }

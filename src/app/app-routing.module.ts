@@ -88,6 +88,14 @@ const routes: Routes = [
   {
     path: 'detalles',
     loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
+  },
+  {
+    path: 'temap',
+    loadChildren: () => import('./temap/temap.module').then( m => m.TemapPageModule)
+  },
+  {
+    path: 'idioma',
+    loadChildren: () => import('./idioma/idioma.module').then( m => m.IdiomaPageModule)
   }
 
 ];

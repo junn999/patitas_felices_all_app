@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { RegistroPageRoutingModule } from './registro-routing.module';
 import { RegistroPage } from './registro.page';
-import { ReactiveFormsModule } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -12,8 +13,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     IonicModule,
     RegistroPageRoutingModule,
-    ReactiveFormsModule
+    TranslateModule
   ],
   declarations: [RegistroPage]
 })
-export class RegistroPageModule {}
+export class RegistroPageModule {
+  langs: string [] = [];
+  constructor(private translateService: TranslateService){
+    this.langs = this.translateService.getLangs();
+  }
+}

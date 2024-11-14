@@ -1,29 +1,29 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title class="home">Home</ion-title>
+    <ion-title class="home">{{ 'Home' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="home-content">
   <div class="text_bienvenida">
-    <h1>Bienvenido a Patitas Felices</h1>
+    <h1>{{ 'general.bienvenida' | translate }}</h1>
   </div>
 
   <ion-grid>
     <ion-row>
       <ion-col size="4">
         <ion-button expand="block" fill="outline" (click)="mostrarTodas()" shape="round"  color="tertiary">
-          <ion-label>Todos</ion-label>
+          <ion-label>{{ 'buscar.situacion_todo' | translate }}</ion-label>
         </ion-button>
       </ion-col>
       <ion-col size="4">
         <ion-button expand="block" fill="outline" (click)="mostrarEnAdopcion()" shape="round"  color="tertiary">
-          <ion-label>Adopcion</ion-label>
+          <ion-label>{{ 'buscar.situacion_adopcion' | translate }}</ion-label>
         </ion-button>
       </ion-col>
       <ion-col size="4">
         <ion-button expand="block" fill="outline" (click)="mostrarPerdidas()" shape="round"  color="tertiary">
-          <ion-label>Extraviadas</ion-label>
+          <ion-label>{{ 'mascota.mascotasPerdidas' | translate }}</ion-label>
         </ion-button>
       </ion-col>
     </ion-row>
@@ -40,17 +40,14 @@
           <div class="pet-info">
             <h3>{{ mascota.nombre | uppercase }}</h3>
             <div class="pet-details">
-              <p><ion-icon name="paw"></ion-icon> Especie: {{ mascota.especie }}</p>
-              <p><ion-icon name="male-female"></ion-icon> Sexo: {{ mascota.sexo }}</p>
-              <p><ion-icon name="calendar"></ion-icon>Fecha: {{ mascota.date | date:'dd/MM/yy'}} </p>
-              <p class="situacion">{{ mascota.coleccion}}</p>
+              <p><ion-icon name="paw"></ion-icon> {{ 'buscar.especie' | translate }}: {{ mascota.especie }}</p>
+              <p><ion-icon name="male-female"></ion-icon> {{ 'mascota.sexo' | translate }}: {{ mascota.sexo }}</p>
+              <p><ion-icon name="calendar"></ion-icon>{{ 'mascota.fecha' | translate }}: {{ mascota.date | date:'dd/MM/yy'}} </p>
             </div>
           </div>
           <ion-toolbar>
-            <ion-buttons class="detalles">
-              <ion-button expand="block" fill="outline" [routerLink]="['/detalles']" [state]="{ mascota: mascota }" shape="round"  color="tertiary">
-                <label for=""> Ver detalles</label>
-              </ion-button>
+            <ion-buttons>
+              <ion-button [routerLink]="['/detalles']" [state]="{ mascota: mascota }">{{ 'mascota.ver_detalles' | translate }}</ion-button>
             </ion-buttons>
           </ion-toolbar>
         </div>

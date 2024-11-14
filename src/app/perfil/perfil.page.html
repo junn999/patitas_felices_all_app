@@ -5,7 +5,7 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="perfil">Perfil</ion-title>
+    <ion-title class="perfil">{{ 'general.perfil' | translate }}</ion-title>
     <ion-buttons slot="end">
         <ion-button fill="clear" href="/configuracion">
           <ion-icon name="settings"></ion-icon>
@@ -16,18 +16,18 @@
 
 <ion-content [fullscreen]="true">
   <div class="name-user">
-    <p>Bienvenido, {{ username }}</p> <!-- Mostrar el username del usuario -->
+    <p>{{ 'general.bienvenidaa' | translate }}, {{ username }}</p>
   </div>
 
   <ion-button [routerLink]="['/editarperfil']" shape="round" class="edit-btn" color="tertiary">
-    Editar Perfil
+    {{ 'perfil.editar' | translate }}
   </ion-button>
 
   <div class="button-logout">
-    <ion-button shape="round" (click)="logout()" color="tertiary">Logout</ion-button>
+    <ion-button shape="round" (click)="logout()" color="tertiary">{{ 'general.cerrar_sesion' | translate }}</ion-button>
   </div>
 
   <ng-template #showLogin>
-    <p>Por favor, inicia sesión.</p>
+    <p>{{ 'login.mensaje_iniciar' | translate }}</p>
   </ng-template>
 </ion-content>

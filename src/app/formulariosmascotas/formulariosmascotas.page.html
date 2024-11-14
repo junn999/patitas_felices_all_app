@@ -5,13 +5,17 @@
         <ion-icon name="arrow-back-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo">Formularios mascotas</ion-title>
+    <ion-title class="titulo">{{ 'mascota.mascotaForm' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content   [fullscreen]="true">
+<ion-content [fullscreen]="true">
   <div class="button-formularios">
-      <ion-button shape="round" (click)="formmascotaperdida()" color="tertiary">Reportar mascota perdida</ion-button>
-      <ion-button shape="round" (click)="formmascotaadopcion()" color="tertiary">Dar mascota en adopción</ion-button>
+    <ion-button shape="round" (click)="formmascotaperdida()" color="tertiary">
+      {{ 'mascota.perdida' | translate }}
+    </ion-button>
+    <ion-button shape="round" (click)="formmascotaadopcion()" color="tertiary">
+      {{ 'mascota.en_adopcion' | translate }}
+    </ion-button>
   </div>
 </ion-content>

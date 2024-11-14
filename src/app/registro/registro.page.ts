@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 import { Firestore, doc, setDoc, getDoc } from '@angular/fire/firestore';
 
 @Component({
@@ -14,13 +15,25 @@ export class RegistroPage implements OnInit {
   email: string = ''; //Campos para el correo, contraseña y nombre de usuario
   password: string = ''; 
   username: string = ''; 
+  
+  idioma: string = 'es';
+  langs = [
+    { label: 'Español', value: 'es' },
+    { label: 'English', value: 'en' }
+  ];
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private alertController: AlertController,
-    private firestore: Firestore // Inyectar Firestore
-  ) {}
+    private firestore: Firestore,
+    private translateService: TranslateService
+  ) {
+    const defaultLang = localStorage.getItem('lang') || 'es'; 
+    this.idioma = defaultLang;
+    this.translateService.setDefaultLang(this.idioma);
+    this.translateService.use(this.idioma);  
+  }
 
   ngOnInit() {}
 
@@ -106,4 +119,11 @@ export class RegistroPage implements OnInit {
       await alert.present();
     }
   }
+  
+  changeLang(event: any) {
+    const selectedLang = event.detail.value;
+    this.translateService.use(selectedLang);
+    localStorage.setItem('lang', selectedLang); 
+  }
+
 }

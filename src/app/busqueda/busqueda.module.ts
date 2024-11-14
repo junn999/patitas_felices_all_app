@@ -4,14 +4,22 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { BusquedaPageRoutingModule } from './busqueda-routing.module';
 import { BusquedaPage } from './busqueda.page';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    BusquedaPageRoutingModule
+    BusquedaPageRoutingModule,
+    TranslateModule
   ],
   declarations: [BusquedaPage]
 })
-export class BusquedaPageModule {}
+export class BusquedaPageModule {
+  langs: string [] = [];
+  constructor(private translateService: TranslateService){
+    this.langs = this.translateService.getLangs();
+  }
+}

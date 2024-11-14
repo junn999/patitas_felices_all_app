@@ -3,6 +3,8 @@ import { FirestoreService } from '../services/firestore.service';
 import { ModalController } from '@ionic/angular';
 import { ImagenComponent } from '../imagen/imagen.component'; 
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -18,8 +20,15 @@ export class HomePage implements OnInit {
   constructor(
     private firestoreService: FirestoreService,
     private modalController: ModalController,
-    private router: Router
-  ) {}
+    private router: Router,
+    private translateService: TranslateService,
+  ) {
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.translateService.setDefaultLang(defaultLang);
+    this.translateService.use(defaultLang);
+  }
+
+  
 
   ngOnInit() {
     this.loadPosts();
@@ -95,4 +104,22 @@ export class HomePage implements OnInit {
   verDetalles(mascota: any) {
     this.router.navigate(['/detalles']); 
   }
+
+  translateValue(key: string, type: string): string {
+    if (type === 'especie') {
+      switch (key.toLowerCase()) {
+        case 'gato': return this.translateService.instant('formulario.gato');
+        case 'perro': return this.translateService.instant('formulario.perro');
+        default: return key;
+      }
+    } else if (type === 'sexo') {
+      switch (key.toLowerCase()) {
+        case 'macho': return this.translateService.instant('sexo.macho');
+        case 'hembra': return this.translateService.instant('sexo.hembra');
+        default: return key;
+      }
+    }
+    return key;
+  }
+
 }
