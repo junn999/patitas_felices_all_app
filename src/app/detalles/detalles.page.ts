@@ -96,6 +96,13 @@ export class DetallesPage implements OnInit {
     await modal.present();
   }
 
+  BotonAdoptar(mascota: any) {
+    console.log("Botón 'Adoptar' presionado para:", mascota);
+  }
+  BotonMensaje(mascota: any) {
+    console.log("Botón 'Mensaje' presionado en:", mascota);
+  }
+
   translateValue(key: string, type: string): string {
     if (type === 'especie') {
       switch (key.toLowerCase()) {
