@@ -29,7 +29,7 @@ export class HomePage implements OnInit {
     this.firestoreService.getPostsFromPerdidas().subscribe(
       (posts) => {
         console.log("Mascotas Perdidas:", posts);
-        this.mascotasPerdidas = posts;
+        this.mascotasPerdidas = posts.map(post => ({ ...post, coleccion: ' Extraviada' }));
         this.combinarYOrdenarPublicaciones();
       },
       (error) => console.error("Error al obtener Mascotas Perdidas:", error)
@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
     this.firestoreService.getPostsFromAdopcion().subscribe(
       (posts) => {
         console.log("Mascotas en Adopcion:", posts);
-        this.mascotasEnAdopcion = posts;
+        this.mascotasEnAdopcion = posts.map(post =>({...post,coleccion:' En adopcion'}));
         this.combinarYOrdenarPublicaciones();
       },
       (error) => console.error("Error al obtener Mascotas en Adopcion:", error)

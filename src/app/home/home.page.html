@@ -13,7 +13,7 @@
     <ion-row>
       <ion-col size="4">
         <ion-button expand="block" fill="outline" (click)="mostrarTodas()" shape="round"  color="tertiary">
-          <ion-label>Todo</ion-label>
+          <ion-label>Todos</ion-label>
         </ion-button>
       </ion-col>
       <ion-col size="4">
@@ -43,13 +43,19 @@
               <p><ion-icon name="paw"></ion-icon> Especie: {{ mascota.especie }}</p>
               <p><ion-icon name="male-female"></ion-icon> Sexo: {{ mascota.sexo }}</p>
               <p><ion-icon name="calendar"></ion-icon>Fecha: {{ mascota.date | date:'dd/MM/yy'}} </p>
+              <p class="situacion">{{ mascota.coleccion}}</p>
             </div>
           </div>
           <ion-toolbar>
-            <ion-buttons>
-              <ion-button [routerLink]="['/detalles']" [state]="{ mascota: mascota }">Ver detalles</ion-button>
+            <ion-buttons class="detalles">
+              <ion-button expand="block" fill="outline" [routerLink]="['/detalles']" [state]="{ mascota: mascota }" shape="round"  color="tertiary">
+                <label for=""> Ver detalles</label>
+              </ion-button>
             </ion-buttons>
           </ion-toolbar>
+        </div>
+        <div class="adoptar">
+
         </div>
       </ion-col>
     </ion-row>
