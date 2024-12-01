@@ -30,7 +30,11 @@ export class PerfilPage implements OnInit {
     private firestoreService: FirestoreService,
     private router: Router,
     private translateService: TranslateService
-  ) {}
+  ) {
+    const defaultLang = localStorage.getItem('lang') || 'es';
+    this.translateService.setDefaultLang(defaultLang);
+    this.translateService.use(defaultLang);
+  }
 
   ngOnInit(): void {
     // Obtener el usuario autenticado
@@ -58,11 +62,5 @@ export class PerfilPage implements OnInit {
     this.authService.logout()
       .then(() => this.router.navigate(['/iniciosesionautenticado']))
       .catch(error => console.error('Logout failed', error));
-  }
-
-  changeLang(event: any) {
-    const selectedLang = event.detail.value;
-    this.translateService.use(selectedLang);
-    localStorage.setItem('lang', selectedLang);
   }
 }

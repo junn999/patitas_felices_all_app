@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'adoption.title' | translate }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/detalles"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="adoptionForm" (ngSubmit)="submitForm()">
+    <div class="request-info">
+      <p>{{ 'adoption.info' | translate }}</p>
+    </div>
+
+    <section class="adoptante-info">
+      <ion-item>
+        <ion-label position="floating">{{ 'adoption.full_name' | translate }}</ion-label>
+        <ion-input type="text" formControlName="fullName" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'adoption.phone' | translate }}</ion-label>
+        <ion-input type="tel" formControlName="phone" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'adoption.email' | translate }}</ion-label>
+        <ion-input type="email" formControlName="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">{{ 'adoption.address' | translate }}</ion-label>
+        <ion-input type="text" formControlName="address" required></ion-input>
+      </ion-item>
+    </section>
+
+      <div class="request-info">
+        <p>{{ 'adoption.pet_info' | translate }}</p>
+      </div>
+  
+      <ion-item>
+        <ion-label>{{ 'mascota.nombre' | translate }}</ion-label>
+        <ion-input [value]="mascotaData?.nombre" readonly></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>{{ 'mascota.especie' | translate }}</ion-label>
+        <ion-input [value]="mascotaData?.especie" readonly></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label>{{ 'mascota.raza' | translate }}</ion-label>
+        <ion-input [value]="mascotaData?.raza" readonly></ion-input>
+      </ion-item>
+      
+  
+    <div class="informacion-adicional">
+          <p>{{ 'adoption.additional_info' | translate }}</p>
+        </div>
+
+      <ion-item>
+        <ion-label>{{ 'adoption.allergic_to_dogs' | translate }}</ion-label>
+        <ion-select formControlName="allergicToDogs" required slot="end">
+          <ion-select-option value="yes">{{ 'adoption.yes' | translate }}</ion-select-option>
+          <ion-select-option value="no">{{ 'adoption.no' | translate }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'adoption.fear_of_dogs' | translate }}</ion-label>
+        <ion-select formControlName="fearOfDogs" required slot="end">
+          <ion-select-option value="yes">{{ 'adoption.yes' | translate }}</ion-select-option>
+          <ion-select-option value="no">{{ 'adoption.no' | translate }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'adoption.smokes' | translate }}</ion-label>
+        <ion-select formControlName="smokes" required slot="end"> 
+          <ion-select-option value="yes">{{ 'adoption.yes' | translate }}</ion-select-option>
+          <ion-select-option value="no">{{ 'adoption.no' | translate }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-button shape="round" color="secondary" type="submit" [disabled]="adoptionForm.invalid">
+        {{ 'adoption.submit' | translate }}
+      </ion-button>
+  
+      <div class="confirmation-message" *ngIf="showGif">
+        <p>{{ 'adoption.success' | translate }}</p>
+        <img src="assets/confirmation.gif" alt="Confirmación" class="confirmation-gif" />
+      </div>
+    </form>
+</ion-content>

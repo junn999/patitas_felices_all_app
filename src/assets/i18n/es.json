@@ -56,7 +56,7 @@
     "password_placeholder": "Contraseña",
     "boton_iniciar": "Iniciar sesión",
     "mensaje_iniciar": "Por favor, inicie sesión.",
-    "sin_cuenta": "¿No tienes una cuenta?",
+    "sin_cuenta": "¿No tienes una cuenta?, Regístrate",
     "registrarse": "Registrarse",
     "continuar_google": "Continuar con Google",
     "olvidaste_contra":"¿Olvidaste tu contraseña?"
@@ -81,7 +81,7 @@
     "seleccionar_ubicacion": "Seleccionar ubicación",
     "fecha":"Fecha",
     "Reportar mascota perdida":"Reportar mascota perdida",
-    "Mascota a dar en adopción": "Mascota a dar en adopción"
+    "Mascota a dar en adopcion": "Mascota a dar en adopción"
   },
   "colores": {
     "negro": "Negro",
@@ -179,5 +179,43 @@
     "descripcion":"Ingresa tu correo asociado a la cuenta para cambiar tu contraseña",
     "correo":"Correo",
     "reest":"Reestablecer"
+  },
+
+    "generaal": {
+      "adoptar": "Adoptar"
+    },
+    "adoption_request": {
+      "title": "Solicitud de Adopción",
+      "info": "Completa los detalles para procesar tu solicitud de adopción.",
+      "submit": "Enviar Solicitud"
+    },
+    "adoption": {
+      "title": "Solicitud de Adopción",
+      "adopter_info": "Información del Adoptante",
+      "full_name": "Nombre Completo",
+      "phone": "Teléfono",
+      "email": "Correo Electrónico",
+      "address": "Dirección",
+      "pet_info": "Información de la Mascota",
+      "species": "Especie",
+      "breed": "Raza",
+      "age": "Edad",
+      "additional_info": "Información Adicional",
+      "allergic_to_dogs": "¿Es alérgico a los perros?",
+      "fear_of_dogs": "¿Tiene miedo de los perros?",
+      "smokes": "¿Fuma?",
+      "submit": "Enviar",
+      "success": "¡Tu solicitud ha sido enviada con éxito!",
+      "select": "Seleccionar",
+      "yes": "Sí",
+      "no": "No",
+      "dog": "Perro",
+      "cat": "Gato",
+      "info" : "Informacion del Adoptante",
+    "errors": {
+      "required": "Este campo es obligatorio",
+      "phone_invalid": "Número de teléfono inválido",
+      "email_invalid": "Correo electrónico inválido"
+    }
   }
 }

@@ -96,7 +96,19 @@ const routes: Routes = [
   {
     path: 'idioma',
     loadChildren: () => import('./idioma/idioma.module').then( m => m.IdiomaPageModule)
+  },  {
+    path: 'inbox',
+    loadChildren: () => import('./inbox/inbox.module').then( m => m.InboxPageModule)
+  },
+  {
+    path: 'chat',
+    loadChildren: () => import('./chat/chat.module').then( m => m.ChatPageModule)
+  },
+  {
+    path: 'solicitud',
+    loadChildren: () => import('./solicitud/solicitud.module').then( m => m.SolicitudPageModule)
   }
+
 
 ];
 

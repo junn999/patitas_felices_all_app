@@ -1,5 +1,4 @@
- /* Estilo de la imagen */
- .pet-thumbnail {
+.pet-thumbnail {
   width: 150px; 
   height: 150px; 
   border-radius: 12px;
@@ -8,6 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 10px;
+ 
 }
 
 .pet-image-container ion-img {
@@ -21,12 +22,12 @@ object-fit: cover;
   font-weight: bold;
   margin: 10px 0;
   color: #d97eff;
+  margin-left: 10px;
 }
 
 .pet-info {
 font-size: 1em;
 margin: 5px 0;
-color: #cccccc;
 display: flex;
 gap: 6px;
 align-items: center;
@@ -38,6 +39,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 gap: 10px;
+border: 3px;
 }
 
 ion-col {
@@ -47,4 +49,15 @@ flex: 1 1 auto;
 ion-button {
 width: 100%;
 text-align: center;
+border: 3px;
+}
+
+.pet-details{
+  border: 4px solid #8a9bb5;
+  padding: 20px;
+  text-align: center;
+  max-width: 300px;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 10px;
 }

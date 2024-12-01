@@ -55,22 +55,18 @@ export class HomePage implements OnInit {
   }
 
   combinarYOrdenarPublicaciones() {
-    // Combina las publicaciones de ambas colecciones en un solo arreglo
     this.todasLasMascotas = [...this.mascotasPerdidas, ...this.mascotasEnAdopcion];
   
-    // Convierte los objetos Timestamp a Date
     this.todasLasMascotas.forEach(mascota => {
       if (mascota.date instanceof Object && mascota.date.seconds) {
-        mascota.date = new Date(mascota.date.seconds * 1000);  // Convierte el Timestamp en un objeto Date
+        mascota.date = new Date(mascota.date.seconds * 1000); 
       }
     });
   
-    // Ordena las publicaciones de ambas colecciones por fecha, de la más reciente a la más antigua
     this.todasLasMascotas.sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
   
-    // Actualiza publicacionesFiltradas con todas las publicaciones ordenadas
     this.publicacionesFiltradas = [...this.todasLasMascotas];
     console.log("Publicaciones combinadas y ordenadas:", this.publicacionesFiltradas);
   } 

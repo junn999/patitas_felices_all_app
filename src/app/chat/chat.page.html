@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/inbox">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="messages.length > 0">
+    <ion-item *ngFor="let msg of messages">
+      <ion-avatar slot="start">
+        <img src="path/to/avatar.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ msg.isMine ? 'Tú' : 'Otro Usuario' }}</h2>
+        <p>{{ msg.content }}</p>
+        <ion-note>{{ msg.timestamp }}</ion-note>
+        <img *ngIf="msg.image" [src]="msg.image" alt="Image" />
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div *ngIf="messages.length === 0" class="empty-chat">
+    <p>El chat está vacío, envía el primer mensaje.</p>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons slot="end" *ngIf="!message.trim()">
+      <ion-button (click)="attachImage()">
+        <ion-icon name="attach-sharp"></ion-icon>
+      </ion-button>
+      <ion-button (click)="captureImage()">
+        <ion-icon name="camera-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-input [(ngModel)]="message" placeholder="Escribe un mensaje..." clearInput></ion-input>
+    <ion-buttons slot="end" *ngIf="message.trim()">
+      <ion-button (click)="sendMessage()">Enviar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

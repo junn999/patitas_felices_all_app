@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" href="/home">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Mensajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="messages.length > 0; else noMessages">
+    <ion-item *ngFor="let message of messages">
+      <ion-avatar slot="start">
+        <img src="path/to/avatar.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ message.userName }}</h2>
+        <p>{{ message.text }}</p>
+        <ion-note>{{ message.date }}</ion-note>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ng-template #noMessages>
+    <ion-item>
+      <ion-label>No hay mensajes aún</ion-label>
+    </ion-item>
+  </ng-template>
+</ion-content>
