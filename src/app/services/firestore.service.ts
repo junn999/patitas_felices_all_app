@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData, doc, 
-DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc, orderBy } from '@angular/fire/firestore';
-import { Observable, of,forkJoin } from 'rxjs';
-import { tap, catchError,map, } from 'rxjs/operators';
+  DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc, orderBy } from '@angular/fire/firestore';
+import { Auth } from '@angular/fire/auth';
+import { Observable, of, forkJoin } from 'rxjs';
+import { tap, catchError, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +15,82 @@ export class FirestoreService {
   private fotosMascotasPerdidasCollection = collection(this.firestore, 'FotosMascotasPerdidas');
   private fotosMascotasEnAdopcionCollection = collection(this.firestore, 'FotosMascotasEnAdopcion');
   private usuarioCollection = collection(this.firestore, 'usuarios');
-
-  constructor(private firestore: Firestore) {
+ 
+  constructor(private firestore: Firestore, private auth: Auth) {
     console.log('Firestore inicializado:', this.firestore);
   }
 
+  // Método para obtener al usuario autenticado
+  async getCurrentUser() {
+    const user = this.auth.currentUser;
+    if (!user) {
+      return null;
+    }
+    return {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName || 'Anónimo',
+    };
+  }
+
+  // Actualizar publicaciones antiguas con nombre de usuario y correo
+  async updateOldPostsWithUserInfo() {
+    const postsRefPerdidas = this.mascotasPerdidasCollection;
+    const postsRefAdopcion = this.MascotasEnAdopcionCollection;
+    
+    // Obtener publicaciones en MascotasPerdidas
+    const querySnapshotPerdidas = await getDocs(postsRefPerdidas);
+    querySnapshotPerdidas.forEach(async (doc) => {
+      const data = doc.data();
+      if (!data["userName"] || !data["userEmail"]) { // Si no tiene datos de usuario
+        const updatedData = {
+          "userName": data["userName"] || 'Anónimo', // Accedemos con corchetes
+          "userEmail": data["userEmail"] || 'Correo no disponible', // Accedemos con corchetes
+        };
+        // Actualizar publicación
+        await updateDoc(doc.ref, updatedData);
+        console.log(`Post ${doc.id} actualizado con usuario:`, updatedData);
+      }
+    });
+  
+    // Obtener publicaciones en MascotasEnAdopcion
+    const querySnapshotAdopcion = await getDocs(postsRefAdopcion);
+    querySnapshotAdopcion.forEach(async (doc) => {
+      const data = doc.data();
+      if (!data["userName"] || !data["userEmail"]) { // Si no tiene datos de usuario
+        const updatedData = {
+          "userName": data["userName"] || 'Anónimo', // Accedemos con corchetes
+          "userEmail": data["userEmail"] || 'Correo no disponible', // Accedemos con corchetes
+        };
+        // Actualizar publicación
+        await updateDoc(doc.ref, updatedData);
+        console.log(`Post ${doc.id} actualizado con usuario:`, updatedData);
+      }
+    });
+  }
+  
   // Métodos para la carga de posts
-  addPostToPerdidas(post: any): Promise<DocumentReference> {
+  async addPostToPerdidas(post: any): Promise<DocumentReference> {
+    const user = await this.getCurrentUser();
+    if (user) {
+      post.userName = user.displayName || 'Anónimo';
+      post.userEmail = user.email ?? 'Correo no disponible';
+    } else {
+      post.userName = 'Anónimo';
+      post.userEmail = 'Correo no disponible';
+    }
     return addDoc(this.mascotasPerdidasCollection, post);
   }
 
-  addPostToAdopcion(post: any): Promise<DocumentReference> {
+  async addPostToAdopcion(post: any): Promise<DocumentReference> {
+    const user = await this.getCurrentUser();
+    if (user) {
+      post.userName = user.displayName || 'Anónimo';
+      post.userEmail = user.email ?? 'Correo no disponible';
+    } else {
+      post.userName = 'Anónimo';
+      post.userEmail = 'Correo no disponible';
+    }
     return addDoc(this.MascotasEnAdopcionCollection, post);
   }
 

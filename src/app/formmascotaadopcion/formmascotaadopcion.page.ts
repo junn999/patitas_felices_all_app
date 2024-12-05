@@ -21,6 +21,7 @@ export class FormmascotaadopcionPage implements OnInit {
     perro: ['Labrador', 'Bulldog', 'Pastor Alemán', 'Poodle', 'Chihuahua', 'Rottweiler', 'Husky siberiano', 'Yorkshire'],
     gato: ['Siames', 'Persa', 'Bengalí', 'Angora', 'Korat']
   };
+
   @ViewChild(MapComponent) mapComponent!: MapComponent;
 
   constructor(
@@ -42,7 +43,13 @@ export class FormmascotaadopcionPage implements OnInit {
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.firestoreService.updateOldPostsWithUserInfo().then(() => {
+      console.log('Publicaciones antiguas actualizadas');
+    }).catch((error) => {
+      console.error('Error al actualizar publicaciones:', error);
+    }); 
+  }
 
   async addPhotoToGallery() {
     await this.photoService.addNewToGallery();
@@ -57,28 +64,38 @@ export class FormmascotaadopcionPage implements OnInit {
         photoURL = latestPhoto.url
       }
       
-      const post = {
-        ...this.form.value,
-        date: new Date(),
-        photoURL: photoURL
-      };
-
+      // Obtener datos del usuario autenticado
       try {
-        await this.firestoreService.addPostToAdopcion(post);
-        console.log('Post added successfully');
-        // Resetear el formulario después de enviar
-        this.form.reset();
-        this.mapPreviewUrl = '';
-        this.photoService.photos = [];
+        const user = await this.firestoreService.getCurrentUser();
+        if (user) {
+          const post = {
+            ...this.form.value,
+            date: new Date(),
+            photoURL: photoURL,
+            userName: user.displayName || 'Usuario', // Nombre del usuario
+            userEmail: user.email                    // Correo del usuario
+          };
+  
+          try {
+            await this.firestoreService.addPostToAdopcion(post);
+            console.log('Post added successfully');
+            this.form.reset();
+            this.mapPreviewUrl = '';
+            this.photoService.photos = [];
+          } catch (error) {
+            console.error('Error adding post: ', error);
+          }
+        } else {
+          console.error('No se encontró usuario autenticado.');
+        }
       } catch (error) {
-        console.error('Error adding post: ', error);
+        console.error('Error al obtener el usuario autenticado:', error);
       }
     } else {
       console.log('Formulario inválido');
     }
   }
 
-  
   async openMapModal() {
     const modal = await this.modalController.create({
       component: MapComponent,
@@ -111,7 +128,6 @@ export class FormmascotaadopcionPage implements OnInit {
     }
   }
 
-
   onEspecieChange(event: any) {
     const selectedEspecie = event.detail.value;
     console.log('Selected Especie:', selectedEspecie);
@@ -121,7 +137,6 @@ export class FormmascotaadopcionPage implements OnInit {
     this.form.get('raza')?.setValue('');
   }
 
- 
   onColorChange(event: any) {
     const selectedColor = event.detail.value;
     console.log('Selected Color:', selectedColor); 

@@ -47,6 +47,11 @@ export class FormmascotaperdidaPage implements OnInit {
     // Usar el idioma predeterminado del localStorage o 'es' como fallback
     const defaultLang = localStorage.getItem('lang') || 'es';
     this.translateService.use(defaultLang);  // Cambiar idioma al inicializar
+    this.firestoreService.updateOldPostsWithUserInfo().then(() => {
+      console.log('Publicaciones antiguas actualizadas');
+    }).catch((error) => {
+      console.error('Error al actualizar publicaciones:', error);
+    });
   }
 
   async addPhotoFromGallery() {
@@ -58,31 +63,43 @@ export class FormmascotaperdidaPage implements OnInit {
     if (this.form.valid) {
       const latestPhoto = this.photoService.photos[0];
       let photoURL = '';
-
+  
       if (latestPhoto && latestPhoto.url) {
         photoURL = latestPhoto.url;
       }
-
-      const post = {
-        ...this.form.value,
-        date: new Date(),
-        photoURL: photoURL
-      };
-
+  
+      // Obtener datos del usuario autenticado
       try {
-        await this.firestoreService.addPostToPerdidas(post);
-        console.log('Post added successfully');
-        this.form.reset();
-        this.mapPreviewUrl = '';
-        this.photoService.photos = [];
+        const user = await this.firestoreService.getCurrentUser();
+        if (user) {
+          const post = {
+            ...this.form.value,
+            date: new Date(),
+            photoURL: photoURL,
+            userName: user.displayName || 'Usuario', // Nombre del usuario
+            userEmail: user.email                    // Correo del usuario
+          };
+  
+          try {
+            await this.firestoreService.addPostToPerdidas(post);
+            console.log('Post added successfully');
+            this.form.reset();
+            this.mapPreviewUrl = '';
+            this.photoService.photos = [];
+          } catch (error) {
+            console.error('Error adding post: ', error);
+          }
+        } else {
+          console.error('No se encontró usuario autenticado.');
+        }
       } catch (error) {
-        console.error('Error adding post: ', error);
+        console.error('Error al obtener el usuario autenticado:', error);
       }
     } else {
       console.log('Formulario inválido');
     }
   }
-
+  
   async openMapModal() {
     const modal = await this.modalController.create({
       component: MapComponent,

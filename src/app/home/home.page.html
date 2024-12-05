@@ -49,6 +49,7 @@
                 <p><ion-icon name="paw"></ion-icon> {{ 'buscar.especie' | translate }}: {{ mascota.especie }}</p>
                 <p><ion-icon name="male-female"></ion-icon> {{ 'mascota.sexo' | translate }}: {{ mascota.sexo }}</p>
                 <p><ion-icon name="calendar"></ion-icon>{{ 'mascota.fecha' | translate }}: {{ mascota.date | date:'dd/MM/yy'}} </p>
+                <p><ion-icon name="person"></ion-icon> Publicado por: {{ mascota.userName }} ({{ mascota.userEmail }})</p>
                 <p class="situacion">{{ mascota.coleccion}}</p>
               </div>
             </div>
