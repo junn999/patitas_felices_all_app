@@ -1,62 +1,74 @@
-ion-title{
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 4%;
-  }
-  
-  ion-content {
-    --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
-    background-size: cover;
-  
+ion-title {
+  padding-top: 2%;
+  padding-bottom: 4%;
+}
+
+ion-content {
+  --background: url('https://i.pinimg.com/originals/ad/0e/85/ad0e85b582c9a2ab4b46b68b5f50e64b.jpg') no-repeat center center / cover;
+  background-size: cover;
+
   ion-button {
     width: 300px;
     text-align: center;
+    align-items: center;
   }
-  }
-  ion-button.reg-Google{
-  color: black;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  margin-bottom: 90px;
-  }
+}
 
-  .form-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;       /* Centra todos los elementos dentro del contenedor */
-    width: 100%;
-    max-width: 340px;          /* Ancho máximo para los ítems */
-    margin-top: 25px;
-    margin-left: 10px;
-  }
-  
-  ion-item {
-    --background: rgb(228, 228, 228);
-    border-radius: 10px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: black;
-    margin-top: 20px;
-    width: 100%;               /* Asegura que los inputs ocupen el 100% del ancho del contenedor */
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: center;    /* Centra el botón horizontalmente */
-    width: 100%;                /* El botón ocupa todo el ancho disponible en su contenedor */
-    margin-top: 40px;
-  }
-  
-  ion-button.back_button{
+
+.reg-Google {
+  margin-top: 10px;  
+  margin-bottom: 10px;
+  align-items: center;
+  text-align: center; 
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;     
+  width: 100%;
+  max-width: 340px;         
+  margin-top: 25px;
+  margin-left: 10px;
+}
+
+ion-icon {
+  color: #443f46;
+}
+
+h1 {
+  color: #b685b6;
+  font-family: 'DynaPuff'; 
+  font-size: 40px;
+}
+
+ion-buttons {
+  ion-button {
     padding-top: 2%;   
     --border-radius: 15px;
   }
-  
-  ion-icon {
-    color: #af7ac5;
-  }
-  
-  h1{
-    color: #b685b6;
-    font-family: 'DynaPuff'; 
-    font-size: 40px;
-  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;    
+  width: 100%;                
+  margin-top: 5px;
+}
+
+ion-button.register-btn {
+  margin-bottom: 20px; 
+}
+
+ion-button {
+  width: 100%;  
+}
+
+ion-item {
+  --background: rgb(228, 228, 228);
+  border-radius: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  margin-top: 20px;
+  width: 100%;               
+}

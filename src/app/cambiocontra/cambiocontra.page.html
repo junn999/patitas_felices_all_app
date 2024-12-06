@@ -36,7 +36,7 @@
     </ion-input>
   </ion-item>
 
-  <ion-button shape="round" color="tertiary" expand="full" (click)="changePassword()" [disabled]="!isFormValid()">{{ 'cambiar.boton_cambiar' | translate }}</ion-button>
+  <ion-button shape="round" color="tertiary" expand="full" (click)="changePassword()" >{{ 'cambiar.boton_cambiar' | translate }}</ion-button>
 
   <ion-text color="danger" *ngIf="errorMessage">
     <p>{{ errorMessage }}</p>

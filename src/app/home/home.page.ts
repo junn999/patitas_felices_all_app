@@ -4,6 +4,7 @@ import { ModalController } from '@ionic/angular';
 import { ImagenComponent } from '../imagen/imagen.component';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Network } from '@capacitor/network';
 
 @Component({
   selector: 'app-home',
@@ -74,11 +75,7 @@ export class HomePage implements OnInit {
         mascota.date = new Date(mascota.date.seconds * 1000); 
       }
     });
-
-    this.todasLasMascotas.sort((a, b) => {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
+    this.todasLasMascotas.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
     this.publicacionesFiltradas = [...this.todasLasMascotas];
     console.log("Publicaciones combinadas y ordenadas:", this.publicacionesFiltradas);
   }
@@ -114,7 +111,7 @@ export class HomePage implements OnInit {
   verDetalles(mascota: any) {
     this.router.navigate(['/detalles'], { state: { mascota } });
   }
-
+  
   translateValue(key: string, type: string): string {
     if (type === 'especie') {
       switch (key.toLowerCase()) {

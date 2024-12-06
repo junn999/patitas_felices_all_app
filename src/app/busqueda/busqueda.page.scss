@@ -38,7 +38,6 @@ ion-searchbar {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 20px;
   --background: rgb(228, 228, 228);
-  --color: rgb(0, 0, 0);
   border-radius: 10px;
 }
 
@@ -54,7 +53,6 @@ ion-content {
 
 ion-tab-button {
   --color-selected: #50c8dd;
-  --color: #000000;
 }
 
 ion-tab-button[tab="home"],

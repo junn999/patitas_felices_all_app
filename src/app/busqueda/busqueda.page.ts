@@ -9,7 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class BusquedaPage implements OnInit {
   selectedChips: { type: string, value: string }[] = [];
-  searchResults: any[] = []; 
+  searchResults: any[] = [];
   situacion: string = 'todo';
   especie: string = '';
   color: string = '';
@@ -42,7 +42,7 @@ export class BusquedaPage implements OnInit {
   selectEspecie(value: string) {
     this.especie = value;
     this.raza = ''; 
-    this.razas = this.speciesBreeds[value.toLowerCase()] || []; 
+    this.razas = this.speciesBreeds[value.toLowerCase()] || [];
     this.addChip('Especie', value);
   }
 
@@ -62,19 +62,27 @@ export class BusquedaPage implements OnInit {
   }
 
   addChip(type: string, value: string) {
-    if (!this.selectedChips.some(chip => chip.type === type)) {
-      this.selectedChips.push({ type, value });
+    const existingChip = this.selectedChips.find(chip => chip.type === type);
+
+    if (existingChip) {
+      existingChip.value = value; 
+    } else {
+      this.selectedChips.push({ type, value }); 
     }
+
+    this.search(); 
   }
 
   removeChip(chip: { type: string, value: string }) {
     this.selectedChips = this.selectedChips.filter(c => c !== chip);
-  
+
     if (chip.type === 'Situación') this.situacion = 'todo';
     if (chip.type === 'Especie') this.especie = '';
     if (chip.type === 'Color') this.color = '';
     if (chip.type === 'Raza') this.raza = '';
     if (chip.type === 'Sexo') this.sexo = '';
+
+    this.search(); 
   }
 
   clearAllChips() {
@@ -84,6 +92,7 @@ export class BusquedaPage implements OnInit {
     this.color = '';
     this.raza = '';
     this.sexo = '';
+    this.search(); 
   }
 
   search() {
@@ -92,7 +101,7 @@ export class BusquedaPage implements OnInit {
       this.firestoreService.getPostsFromPerdidas().subscribe(posts => {
         this.filterPosts(posts, 'Pérdida');
       });
-    } else if (this.situacion === 'Adopcion') {
+    } else if (this.situacion === 'Adopción') {
       this.firestoreService.getPostsFromAdopcion().subscribe(posts => {
         this.filterPosts(posts, 'Adopción');
       });
@@ -119,8 +128,8 @@ export class BusquedaPage implements OnInit {
     if (this.sexo) {
       filtered = filtered.filter(post => post.sexo === this.sexo);
     }
-    
-    filtered = filtered.map(post => ({ ...post, situacion: situacion === 'Todo' ? post.situacion : situacion}));
+
+    filtered = filtered.map(post => ({ ...post, situacion: situacion === 'Todo' ? post.situacion : situacion }));
     this.searchResults = filtered;
   }
 }
