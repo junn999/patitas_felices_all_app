@@ -27,6 +27,15 @@
     <ion-button shape="round" (click)="logout()" color="tertiary">{{ 'general.cerrar_sesion' | translate }}</ion-button>
   </div>
 
+  <!-- Sección para mostrar las publicaciones del usuario -->
+  <h4>Mis publicaciones</h4>
+  <div class="user-posts-grid">
+    <div class="post-image" *ngFor="let post of userPosts | async">
+      <img [src]="post.photoURL" *ngIf="post.photoURL" alt="Photo" (click)="verDetalles(post)">
+      <button ion-button (click)="verDetalles(post)" class="details-button">Ver Detalles</button>
+    </div>
+  </div>
+
   <ng-template #showLogin>
     <p>{{ 'login.mensaje_iniciar' | translate }}</p>
   </ng-template>

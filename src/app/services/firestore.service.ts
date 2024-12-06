@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, addDoc, collectionData, doc, 
-  DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc, orderBy } from '@angular/fire/firestore';
+  DocumentReference, query, where, getDocs, QuerySnapshot, updateDoc, orderBy, 
+  docData} from '@angular/fire/firestore';
 import { Auth } from '@angular/fire/auth';
 import { Observable, of, forkJoin } from 'rxjs';
 import { tap, catchError, map } from 'rxjs/operators';
@@ -73,9 +74,11 @@ export class FirestoreService {
   async addPostToPerdidas(post: any): Promise<DocumentReference> {
     const user = await this.getCurrentUser();
     if (user) {
+      post.userId = user.uid; 'Id de usuario para asiganrlo a la publicación'
       post.userName = user.displayName || 'Anónimo';
       post.userEmail = user.email ?? 'Correo no disponible';
     } else {
+      post.userId = 'anónimo'; 'Campo por defecto si el usuario no está autenticado'
       post.userName = 'Anónimo';
       post.userEmail = 'Correo no disponible';
     }
@@ -85,9 +88,11 @@ export class FirestoreService {
   async addPostToAdopcion(post: any): Promise<DocumentReference> {
     const user = await this.getCurrentUser();
     if (user) {
+      post.userId = user.uid; 'Id de usuario para asiganrlo a la publicación'
       post.userName = user.displayName || 'Anónimo';
       post.userEmail = user.email ?? 'Correo no disponible';
     } else {
+      post.userId = 'anónimo'; 'Campo por defecto si el usuario no está autenticado'
       post.userName = 'Anónimo';
       post.userEmail = 'Correo no disponible';
     }
@@ -184,4 +189,22 @@ export class FirestoreService {
       });
     }
   }
+
+  // Método para obtener publicaciones de un usuario específico
+  getPostsByUser(userId: string): Observable<any[]> {
+    const userPostsQuery = query(this.mascotasPerdidasCollection, where('userId', '==', userId),orderBy('date', 'desc'));
+    return collectionData(userPostsQuery, { idField: 'id' }).pipe(
+      tap(data => console.log('Publicaciones del usuario:', data)),
+      catchError(error => {
+        console.error('Error obteniendo publicaciones del usuario:', error);
+        return of([]);
+      })
+    ) as Observable<any[]>;
+  }
+
+  getPostById(postId: string): Observable<any> {
+    const postDocRef = doc(this.firestore, `MascotasPerdidas/${postId}`);
+    return docData(postDocRef, { idField: 'id' });
+  }
+  
 }

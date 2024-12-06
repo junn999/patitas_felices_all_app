@@ -2,9 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MapComponent } from '../map/map.component';
 import { ModalController } from '@ionic/angular';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router'; // Asegúrate de importar ActivatedRoute
 import { ImagenComponent } from '../imagen/imagen.component';
 import { TranslateService } from '@ngx-translate/core';
+import { FirestoreService } from '../services/firestore.service'; // Importa FirestoreService
 
 @Component({
   selector: 'app-detalles',
@@ -24,7 +25,9 @@ export class DetallesPage implements OnInit {
     private modalController: ModalController,
     private sanitizer: DomSanitizer,
     private router: Router,
-    private translateService: TranslateService
+    private route: ActivatedRoute, // Asegúrate de añadir ActivatedRoute en el constructor
+    private translateService: TranslateService,
+    private firestoreService: FirestoreService // Asegúrate de añadir FirestoreService en el constructor
   ) {
     const defaultLang = localStorage.getItem('lang') || 'es';
     this.translateService.setDefaultLang(defaultLang);
@@ -32,15 +35,20 @@ export class DetallesPage implements OnInit {
   }
 
   ngOnInit() {
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation?.extras.state) {
-      this.mascota = navigation.extras.state['mascota'];
-      if (this.mascota?.date instanceof Object && this.mascota?.date.seconds) {
-        this.mascota.date = new Date(this.mascota.date.seconds * 1000);
+    // Obtener el parámetro 'id' de la ruta
+    this.route.queryParams.subscribe(params => {
+      const postId = params['id'];
+      if (postId) {
+        this.firestoreService.getPostById(postId).subscribe(post => {
+          this.mascota = post;
+          if (this.mascota?.date instanceof Object && this.mascota?.date.seconds) {
+            this.mascota.date = new Date(this.mascota.date.seconds * 1000);
+          }
+        });
+      } else {
+        console.error('No se recibió información de la mascota.');
       }
-    } else {
-      console.error('No se recibió información de la mascota.');
-    }
+    });
   }
 
   generateOpenStreetMapUrl(latitude: number, longitude: number): SafeResourceUrl {
