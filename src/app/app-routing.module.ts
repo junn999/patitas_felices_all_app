@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './auth.guard';  // Protector de ruta
+import { NetworkGuard } from './guards/network.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +14,7 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule), canActivate: [AuthGuard]
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
   {
     path: 'registro',
@@ -87,7 +87,7 @@ const routes: Routes = [
   },
   {
     path: 'detalles',
-    loadChildren: () => import('./detalles/detalles.module').then( m => m.DetallesPageModule)
+    loadChildren: () => import('./detalles/detalles.module').then(m => m.DetallesPageModule)
   },
   {
     path: 'temap',
@@ -96,7 +96,8 @@ const routes: Routes = [
   {
     path: 'idioma',
     loadChildren: () => import('./idioma/idioma.module').then( m => m.IdiomaPageModule)
-  },  {
+  },
+  {
     path: 'inbox',
     loadChildren: () => import('./inbox/inbox.module').then( m => m.InboxPageModule)
   },
@@ -107,7 +108,13 @@ const routes: Routes = [
   {
     path: 'solicitud',
     loadChildren: () => import('./solicitud/solicitud.module').then( m => m.SolicitudPageModule)
-  }
+  },
+  {
+    path: 'e404',
+    loadChildren: () => import('./e404/e404.module').then(m => m.E404PageModule)
+  },
+  
+
 
 
 ];

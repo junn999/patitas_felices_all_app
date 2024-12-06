@@ -1,6 +1,7 @@
 .name-user{
   margin-top: 20px; /* Espacio entre los campos de entrada y el botón */
   text-align: center;
+
 }
 
 .button-logout{
@@ -25,7 +26,6 @@ ion-content {
 
 
 p{
-  color: beige;
   font-size: 20px;
   margin-top: 50px;
 }
@@ -39,6 +39,7 @@ p{
 
 ion-icon {
     color: #af7ac5;
+    font-size: 28px !important;
   
 }
 

@@ -1,9 +1,3 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Iniciar sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="ion-padding login-content">
   <div class="login-container">
     <div *ngIf="!isLoading" class="login-content">
@@ -15,11 +9,11 @@
       <ion-card-content>
         <ion-item>
           <ion-input [(ngModel)]="email" placeholder="{{ 'login.email_placeholder' | translate }}" class="input"></ion-input>
-          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-icon name="person-circle-outline" color="tertiary"></ion-icon>
         </ion-item>
         <ion-item>
           <ion-input [(ngModel)]="password" placeholder="{{ 'login.password_placeholder' | translate }}" class="input" type="password"></ion-input>
-          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-icon name="lock-closed-outline" color="tertiary"></ion-icon>
         </ion-item>
       </ion-card-content>
 
@@ -28,6 +22,13 @@
       <ion-button shape="round" color="tertiary" (click)="loginWithEmail()">
         {{ 'login.boton_iniciar' | translate }}
       </ion-button>
+      
+      <ion-button shape="round" (click)="login()" class="login-button" color="secondary">
+        <ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
+        {{ 'login.continuar_google' | translate }}
+      </ion-button>
+      
+      <ion-button fill="clear" href="/registro" color="secondary">{{ 'login.sin_cuenta' | translate }}</ion-button>      
 
       <ng-template #showLogin>
         <p>{{ 'login.loginPrompt' | translate }}</p>
@@ -38,11 +39,7 @@
       <img src="assets/gato_precarga.png" alt="Loading Image">
     </div>
 
-    <strong>{{ 'login.sin_cuenta' | translate }}</strong>
-    <ion-button routerLink="/registro" shape="round" color="medium">{{ 'login.registrarse' | translate }}</ion-button>
-    <ion-button shape="round" (click)="login()" class="login-button" color="tertiary">
-      <ion-icon name="logo-google" style="margin-right: 10px;"></ion-icon>
-      {{ 'login.continuar_google' | translate }}
-    </ion-button>
+    
+    
   </div>
 </ion-content>

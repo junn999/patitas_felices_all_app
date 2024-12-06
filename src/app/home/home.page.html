@@ -1,16 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title class="home">{{ 'Home' | translate }}</ion-title>
-    <!-- Icono de chat en la parte superior derecha -->
-    <ion-buttons slot="end">
-      <ion-button routerLink="/inbox">
-        <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="home-content">
+
+  <ion-buttons class="inbox-button">
+    <ion-button routerLink="/inbox">
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
   <div class="text_bienvenida">
     <h1>{{ 'login.app_name' | translate }}</h1>
   </div>
@@ -69,27 +63,27 @@
   <div class="barra_menu">
     <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="home" href="/home">
+        <ion-tab-button href="/home">
           <ion-icon name="home-outline"></ion-icon>
           <ion-label></ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="search" routerLink="/busqueda">
+        <ion-tab-button routerLink="/busqueda">
           <ion-icon name="search-outline"></ion-icon>
           <ion-label></ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="formulariosmascotas" routerLink="/formulariosmascotas">
+        <ion-tab-button routerLink="/formulariosmascotas">
           <ion-icon name="paw-outline"></ion-icon>
           <ion-label></ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="location" routerLink="/ubicacion">
+        <ion-tab-button routerLink="/ubicacion">
           <ion-icon name="location-outline"></ion-icon>
           <ion-label></ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="profile" routerLink="/perfil">
+        <ion-tab-button routerLink="/perfil">
           <ion-icon name="person-circle-outline"></ion-icon>
           <ion-label></ion-label>
         </ion-tab-button>

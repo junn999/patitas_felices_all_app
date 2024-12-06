@@ -180,41 +180,48 @@
     "correo":"Email",
     "reest":"Reset"
   },
-  "generaal": {
-    "adoptar": "Adopt"
-  },
-  "adoption_request": {
-    "title": "Adoption Request",
-    "info": "Fill in the details to process your adoption request.",
-    "submit": "Submit Request"
-  },
-  "adoption": {
-    "title": "Adoption Request",
-    "adopter_info": "Adopter Information",
-    "full_name": "Full Name",
-    "phone": "Phone",
-    "email": "Email",
-    "address": "Address",
-    "pet_info": "Pet Information",
-    "species": "Species",
-    "breed": "Breed",
-    "age": "Age",
-    "additional_info": "Additional Information",
-    "allergic_to_dogs": "Are you allergic to dogs?",
-    "fear_of_dogs": "Do you have a fear of dogs?",
-    "smokes": "Do you smoke?",
-    "submit": "Submit",
-    "success": "Your request has been submitted successfully!",
-    "select": "Select",
-    "yes": "Yes",
-    "no": "No",
-    "dog": "Dog",
-    "cat": "Cat",
-    "info": "Adopter Information",
-    "errors": {
-      "required": "This field is required",
-      "phone_invalid": "Invalid phone number",
-      "email_invalid": "Invalid email address"
-    }
-  }
-}
+  
+    "generaal": {
+      "adoptar": "Adopt",
+      "mensaje": "Message"
+    },
+    "adoption_request": {
+      "title": "Adoption Request",
+      "info": "Fill in the details to process your adoption request.",
+      "submit": "Submit Request"
+    },
+  
+      "adoption": {
+        "title": "Adoption Request",
+        "adopter_info": "Adopter Information",
+        "full_name": "Full Name",
+        "phone": "Phone",
+        "email": "Email",
+        "address": "Address",
+        "pet_info": "Pet Information",
+        "species": "Species",
+        "breed": "Breed",
+        "age": "Age",
+        "additional_info": "Additional Information",
+        "allergic_to_dogs": "Are you allergic to dogs?",
+        "fear_of_dogs": "Do you have a fear of dogs?",
+        "smokes": "Do you smoke?",
+        "submit": "Submit",
+        "success": "Your request has been submitted successfully!",
+        "select": "Select",
+        "yes": "Yes",
+        "no": "No",
+        "dog": "Dog",
+        "cat": "Cat",
+        "infor": "Adopter Information",
+        "errors": {
+          "required": "This field is required",
+          "phone_invalid": "Invalid phone number",
+          "email_invalid": "Invalid email address"
+        }
+      },
+      
+        "ERROR_404_TITLE": "Page Not Found",
+        "ERROR_404_MESSAGE": "Oops! It looks like we can't connect to the server. Please check your internet connection..",
+         "ERROR_404_RETURN_BUTTON": "Retry"
+      }

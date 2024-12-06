@@ -1,6 +1,6 @@
 .titulo {
   text-align: center;
-  width: 100%; /* Asegura que el título ocupe todo el ancho disponible */
+  width: 100%; 
 }
 
 .text-insert-photo{
@@ -11,12 +11,12 @@
 .camera-button-container {
   display: flex;
   justify-content: center;
-  margin: 2px 0; /* Ajusta el margen según sea necesario */
+  margin: 2px 0; 
 }
 
 .button-container {
   display: flex;
   justify-content: center;
-  margin-top: 200px; /* Espacio entre los campos de entrada y el botón */
-  margin-bottom: 40px; /* Espacio para mantener el botón en la parte inferior */
+  margin-top: 200px;
+  margin-bottom: 40px; 
 }

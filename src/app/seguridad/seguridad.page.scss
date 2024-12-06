@@ -1,17 +1,16 @@
 ion-content {
-    --background: transparent; /* Fondo del contenido en negro o el color que prefieras */
-  }
-  
-  .options-container {
-    --ion-item-background: transparent; /* Fondo transparente para los items */
-    --ion-item-border-color: transparent; /* Color de la línea divisoria */
-  }
-  
-  ion-label {
-    color: #e0e0e0; /* Color del texto */
-    font-size: 2rem;
-  }
-  
-  ion-icon {
-    color: #9c27b0; /* Color de la flecha */
-  }
+  --background: transparent; 
+
+.options-container {
+  --ion-item-background: transparent; 
+  --ion-item-border-color: transparent; 
+}
+
+ion-label {
+  font-size: 2rem;
+}
+
+ion-icon {
+  color: #9c27b0;
+}
+}

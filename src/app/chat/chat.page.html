@@ -34,16 +34,16 @@
   <ion-toolbar>
     <ion-buttons slot="end" *ngIf="!message.trim()">
       <ion-button (click)="attachImage()">
-        <ion-icon name="attach-sharp"></ion-icon>
+        <ion-icon name="attach-sharp" color="secondary"></ion-icon>
       </ion-button>
       <ion-button (click)="captureImage()">
-        <ion-icon name="camera-sharp"></ion-icon>
+        <ion-icon name="camera-sharp" color="secondary"></ion-icon>
       </ion-button>
     </ion-buttons>
 
     <ion-input [(ngModel)]="message" placeholder="Escribe un mensaje..." clearInput></ion-input>
     <ion-buttons slot="end" *ngIf="message.trim()">
-      <ion-button (click)="sendMessage()">Enviar</ion-button>
+      <ion-button (click)="sendMessage()" color="tertiary">Enviar</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
