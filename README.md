@@ -65,3 +65,4 @@ Patitas felices es una aplicación innovadora que genera un impacto positivo en 
 |AngularFire: v18.0.1|
 
 # patitas_felices_all_app
+https://heyzine.com/flip-book/efd9563765.html
